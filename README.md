@@ -74,7 +74,7 @@ Please cite [the following paper]:
 }
 ```
 
-For IDT-based and DLT-based complexities, please cite [this paper](https://www.aclweb.org/anthology/papers/N/N19/N19-4010/):
+For IDT-based and DLT-based complexities, please cite [this paper](https://hal.archives-ouvertes.fr/hal-02146506/document):
 
 ```
 @incollection{mirzapour2020,
