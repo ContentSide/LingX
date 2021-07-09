@@ -13,4 +13,4 @@ commit guidelines below.
 If there is already a ticket, use this number at the start of your commit message. 
 Use meaningful commit messages that described what you did.
 
-**Example:** `LX-01: Added new complexity calculation.` 
+**Example:** `LX-01: Added a new complexity metric.` 
