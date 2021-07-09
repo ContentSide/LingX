@@ -9,9 +9,9 @@ A library for introducing state-of-the-art metrics on measuring linguistic compl
 
 LingX is:
 
-**A library for measuring linguistic complexity**
-**A library for measuring translational process studies**
-**A library for calculating psycho-linguistic metrics**
+**A library for measuring linguistic complexity**  
+**A library for measuring translational process studies**  
+**A library for calculating psycho-linguistic metrics**  
 
 
 
