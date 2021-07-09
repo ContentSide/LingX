@@ -47,3 +47,18 @@ This should print:
 from lingx.idt import get_nested_np_modifiers_score
 from lingx.tools.critt 
 ```
+
+## Tutorials
+
+We provide a set of quick tutorials to get you started with the library:
+
+* [Tutorial 1: Basics](/resources/docs/TUTORIAL_1_BASICS.md)
+* [Tutorial 2: Getting IDT-based Linguistic Complexity](/resources/docs/TUTORIAL_2_TAGGING.md)
+* [Tutorial 3: Getting DLT-based Linguistic Complexity](/resources/docs/TUTORIAL_3_WORD_EMBEDDING.md)
+* [Tutorial 4: Getting IDT-DLT-based Linguistic Complexity](/resources/docs/TUTORIAL_4_ELMO_BERT_FLAIR_EMBEDDING.md)
+* [Tutorial 5: Getting Left-Embeddedness Linguistic Complexity](/resources/docs/TUTORIAL_5_DOCUMENT_EMBEDDINGS.md)
+* [Tutorial 6: Getting Number of Nouns Modifiers Metric](/resources/docs/TUTORIAL_6_CORPUS.md)
+* [Tutorial 7: Getting BiLingual Complexity Ratio](/resources/docs/TUTORIAL_7_TRAINING_A_MODEL.md)
+* [Tutorial 8: Reading and Working with CRITT TPR-DB ](/resources/docs/TUTORIAL_1_BASICS.md)
+
+The tutorials explain how the base metrics can be obtained. Let us know if anything is unclear.
