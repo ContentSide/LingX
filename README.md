@@ -65,7 +65,7 @@ The tutorials explain how the base metrics can be obtained. Let us know if anyth
 
 
 
-## Citing Flair
+## Citing LingX
 
 Please cite [the following paper]:
 
@@ -89,4 +89,4 @@ For IDT-based and DLT-based complexities, please cite [this paper](https://www.a
 
 ## Contact
 
-Please email your questions or comments to [Mehdi Mirzapour](mehdi.mirzapour@gmail.com).
+Please email your questions or comments to [Mehdi Mirzapour](https://sites.google.com/view/mehdimirzapour/contact).
