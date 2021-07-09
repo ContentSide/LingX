@@ -9,10 +9,10 @@
 
 **LingX is:**  
 
-A library for measuring linguistic complexity.  
-A library for measuring translational process studies.  
-A library for calculating some of the psycholinguistics metrics.  
-A library under-development for different factors related to the text analysis.  
+- A library for measuring linguistic complexity.  
+- A library for measuring translational process studies.  
+- A library for calculating some of the psycholinguistics metrics.  
+- A library under-development for different factors related to the text analysis.  
 
 ---
 
