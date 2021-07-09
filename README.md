@@ -62,3 +62,31 @@ We provide a set of quick tutorials to get you started with the library:
 * [Tutorial 8: Reading and Working with CRITT TPR-DB ](/resources/docs/TUTORIAL_1_BASICS.md)
 
 The tutorials explain how the base metrics can be obtained. Let us know if anything is unclear.
+
+
+
+## Citing Flair
+
+Please cite [the following paper]:
+
+```
+@inproceedings{
+}
+```
+
+For IDT-based and DLT-based complexities, please cite [this paper](https://www.aclweb.org/anthology/papers/N/N19/N19-4010/):
+
+```
+@incollection{mirzapour2020,
+  title={Measuring Linguistic Complexity: Introducing a New Categorial Metric},
+  author={Mirzapour, Mehdi and Prost, Jean-Philippe and Retor{\'e}, Christian},
+  booktitle={Logic and Algorithms in Computational Linguistics 2018 (LACompLing2018)},
+  pages={95--123},
+  year={2020},
+  publisher={Springer}
+}
+```
+
+## Contact
+
+Please email your questions or comments to [Mehdi Mirzapour](mehdi.mirzapour@gmail.com).
