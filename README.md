@@ -22,3 +22,28 @@ LingX calculates different token-based and segment-based mono-bilingual complexi
 
 LingX uses [Stanza](https://stanfordnlp.github.io/stanza/) state-of-the-arts NLP library for different language-based tasks. Stanza is a collection of accurate and efficient tools for the linguistic analysis of many human languages. Stanza brings state-of-the-art NLP models to different languages.
 
+## Quick Start
+
+### Requirements and Installation
+
+The project is based on Stanza 1.2.1 and Python 3.6+. If you do not have Python 3.6, install it first. Then, in your favorite virtual environment, simply do:
+
+```
+pip install lingx
+```
+
+### Example Usage
+
+Let's run a simple token-based incomplete dependencies difficulty measure. All you need to do is make import related methode as follows:
+
+```python
+from lingx.idt import get_nested_np_modifiers_score
+from lingx.tools.critt 
+```
+
+This should print:
+
+```console
+from lingx.idt import get_nested_np_modifiers_score
+from lingx.tools.critt 
+```
