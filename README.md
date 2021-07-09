@@ -90,3 +90,7 @@ For IDT-based and DLT-based complexities, please cite [this paper](https://www.a
 ## Contact
 
 Please email your questions or comments to [Mehdi Mirzapour](https://sites.google.com/view/mehdimirzapour/contact).
+
+## [License](/LICENSE)
+
+LingX is licensed under the following MIT License (MIT) Copyright © 2021 ContentSide and CRITT at Kent State University.
