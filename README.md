@@ -3,16 +3,16 @@
 [![Contributions welcome](https://img.shields.io/badge/contributions-welcome-brightgreen.svg)](CONTRIBUTING.md)
 [![License: MIT](https://img.shields.io/badge/License-MIT-brightgreen.svg)](https://opensource.org/licenses/MIT)
 
-A library for introducing state-of-the-art metrics on measuring linguistic complexity. Developed by ContentSide and CRITT at Kent State University.
+**A library for introducing state-of-the-art metrics on measuring linguistic complexity. Developed by ContentSide and CRITT at Kent State University.**
 
 ---
 
 **LingX is:**  
 
-**A library for measuring linguistic complexity**  
-**A library for measuring translational process studies**  
-**A library for calculating psycholinguistics metrics**
-**A library under-development for different factors related to the text analysis**  
+A library for measuring linguistic complexity  
+A library for measuring translational process studies  
+A library for calculating psycholinguistics metrics  
+A library under-development for different factors related to the text analysis  
 
 ---
 
