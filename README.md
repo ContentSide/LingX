@@ -9,10 +9,10 @@
 
 **LingX is:**  
 
-A library for measuring linguistic complexity  
-A library for measuring translational process studies  
-A library for calculating psycholinguistics metrics  
-A library under-development for different factors related to the text analysis  
+A library for measuring linguistic complexity.  
+A library for measuring translational process studies.  
+A library for calculating some of the psycholinguistics metrics.  
+A library under-development for different factors related to the text analysis.  
 
 ---
 
@@ -20,7 +20,7 @@ A library under-development for different factors related to the text analysis
 
 LingX calculates different token-based and segment-based mono-bilingual complexity metrics. It internaly parses a given text into a dependency grammar graph. Using the graph and other linguistic information such as part-of-speech tagging, it can caculates different psycholinguistics, linguistic and translational process difficulties. See the reference section for detailed information. 
 
-LingX uses Stanza ![Stanza](https://stanfordnlp.github.io/stanza/) state-of-the-arts NLP library for different language-based tasks. Stanza is a collection of accurate and efficient tools for the linguistic analysis of many human languages. Stanza brings state-of-the-art NLP models to different languages.
+LingX uses [Stanza](https://stanfordnlp.github.io/stanza/) state-of-the-arts NLP library for different language-based tasks. Stanza is a collection of accurate and efficient tools for the linguistic analysis of many human languages. Stanza brings state-of-the-art NLP models to different languages.
 
 
 ---
