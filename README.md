@@ -1,3 +1,22 @@
+![alt text](resources/ContentSide.png)
+
+[![PyPI version](https://badge.fury.io/py/flair.svg)](https://badge.fury.io/py/flair)
+[![GitHub Issues](https://img.shields.io/github/issues/flairNLP/flair.svg)](https://github.com/flairNLP/flair/issues)
+[![Contributions welcome](https://img.shields.io/badge/contributions-welcome-brightgreen.svg)](CONTRIBUTING.md)
+[![License: MIT](https://img.shields.io/badge/License-MIT-brightgreen.svg)](https://opensource.org/licenses/MIT)
+
+A framework for introducing state-of-the-art metrics on measuring linguistic complexity. Developed by ContentSide.
+
+---
+
+LingX is:
+
+**Metric generator for measuring linguistic complexity** 
+
+
+
+
+
 **Edit a file, create a new file, and clone from Bitbucket in under 2 minutes**
 
 When you're done, you can delete the content in this README and update the file with details for others getting started with your repository.
