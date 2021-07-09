@@ -7,21 +7,19 @@ A library for introducing state-of-the-art metrics on measuring linguistic compl
 
 ---
 
-LingX is:
+**LingX is:**  
 
 **A library for measuring linguistic complexity**  
 **A library for measuring translational process studies**  
-**A library for calculating psycho-linguistic metrics**  
+**A library for calculating psycholinguistics metrics**
+**A library under-development for different factors related to the text analysis**  
 
+---
 
-
-
-
-**Edit a file, create a new file, and clone from Bitbucket in under 2 minutes**
+**How does LingX work?**
 
 When you're done, you can delete the content in this README and update the file with details for others getting started with your repository.
 
-*We recommend that you open this README in another tab as you perform the tasks below. You can [watch our video](https://youtu.be/0ocf7u76WSo) for a full demo of all the steps in this tutorial. Open the video in a new tab to avoid leaving Bitbucket.*
 
 ---
 
