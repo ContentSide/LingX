@@ -51,11 +51,11 @@ from lingx.utils.critt
 
 We provide a set of quick tutorials to get you started with the library:
 
-* [Tutorial 1: Installation](/docs/TUTORIAL_1_BASICS.md)
-* [Tutorial 2: Getting Psycholingual Metrics](/docs/TUTORIAL_2_PSYCHOLINGUAL.md)
-* [Tutorial 3: Getting Monolingual Metrics](/docs/TUTORIAL_3_MONOLINGUAL.md)
-* [Tutorial 4: Getting Bilingual Metrics](/docs/TUTORIAL_4_BILINGUAL.md)
-* [Tutorial 5: Reading and Working with CRITT TPR-DB ](/docs/TUTORIAL_5_CRITT.md)
+* [Tutorial 1: Installation](./docs/TUTORIAL_1_BASICS.md)
+* [Tutorial 2: Getting Psycholingual Metrics](./docs/TUTORIAL_2_PSYCHOLINGUAL.md)
+* [Tutorial 3: Getting Monolingual Metrics](./docs/TUTORIAL_3_MONOLINGUAL.md)
+* [Tutorial 4: Getting Bilingual Metrics](./docs/TUTORIAL_4_BILINGUAL.md)
+* [Tutorial 5: Reading and Working with CRITT TPR-DB ](./docs/TUTORIAL_5_CRITT.md)
 
 The tutorials explain how the base metrics can be obtained. Let us know if anything is unclear.
 
