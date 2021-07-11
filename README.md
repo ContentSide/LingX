@@ -9,16 +9,15 @@
 
 **LingX is:**  
 
-- A library for measuring linguistic complexity.  
-- A library for measuring translational process studies.  
-- A library for calculating some of the psycholinguistics metrics.  
-- A library under-development for different factors related to the text analysis.  
+- A library for calculating some of the psycholinguistics complexity metrics.  
+- A library for obtaining helpful metrics for translational process studies.  
+- A library for different factors related to the text analysis.  
 
 ---
 
 **How does LingX generally work?**
 
-LingX calculates different token-based and segment-based mono-bilingual complexity metrics. It internaly parses a given text into a dependency grammar graph. Using the graph and other linguistic information such as part-of-speech tagging, it can caculates different psycholinguistics, linguistic and translational process difficulties. See the reference section for detailed information. 
+LingX calculates different token-based and segment-based mono-bilingual complexity metrics. It internaly parses a given text into a dependency grammar graph. Using the graph and other linguistic information such as part-of-speech tagging, it can caculates different psycholinguistics, linguistic and translational process metrics. See the reference section for detailed information.  
 
 LingX uses [Stanza](https://stanfordnlp.github.io/stanza/) state-of-the-arts NLP library for different language-based tasks. Stanza is a collection of accurate and efficient tools for the linguistic analysis of many human languages. Stanza brings state-of-the-art NLP models to different languages.
 
@@ -34,7 +33,7 @@ pip install lingx
 
 ### Example Usage
 
-Let's run a simple token-based incomplete dependencies difficulty measure. All you need to do is make import related methode as follows:
+Let's run a simple token-based incomplete dependencies difficulty measure. All you need to do is to make import related methode as follows:
 
 ```python
 from lingx.idt import get_nested_np_modifiers_score
@@ -44,22 +43,19 @@ from lingx.tools.critt
 This should print:
 
 ```console
-from lingx.idt import get_nested_np_modifiers_score
-from lingx.tools.critt 
+from lingx.metrics.bilingual import get_nested_np_modifiers_score
+from lingx.utils.critt 
 ```
 
 ## Tutorials
 
 We provide a set of quick tutorials to get you started with the library:
 
-* [Tutorial 1: Basics](/resources/docs/TUTORIAL_1_BASICS.md)
-* [Tutorial 2: Getting IDT-based Linguistic Complexity](/resources/docs/TUTORIAL_2_TAGGING.md)
-* [Tutorial 3: Getting DLT-based Linguistic Complexity](/resources/docs/TUTORIAL_3_WORD_EMBEDDING.md)
-* [Tutorial 4: Getting IDT-DLT-based Linguistic Complexity](/resources/docs/TUTORIAL_4_ELMO_BERT_FLAIR_EMBEDDING.md)
-* [Tutorial 5: Getting Left-Embeddedness Linguistic Complexity](/resources/docs/TUTORIAL_5_DOCUMENT_EMBEDDINGS.md)
-* [Tutorial 6: Getting Noun Modifiers Metric](/resources/docs/TUTORIAL_6_CORPUS.md)
-* [Tutorial 7: Getting BiLingual Complexity Ratio Metric](/resources/docs/TUTORIAL_7_TRAINING_A_MODEL.md)
-* [Tutorial 8: Reading and Working with CRITT TPR-DB ](/resources/docs/TUTORIAL_1_BASICS.md)
+* [Tutorial 1: Installation](/docs/TUTORIAL_1_BASICS.md)
+* [Tutorial 2: Getting Psycholingual Metrics](/docs/TUTORIAL_2_PSYCHOLINGUAL.md)
+* [Tutorial 3: Getting Monolingual Metrics](/docs/TUTORIAL_3_MONOLINGUAL.md)
+* [Tutorial 4: Getting Bilingual Metrics](/docs/TUTORIAL_4_BILINGUAL.md)
+* [Tutorial 5: Reading and Working with CRITT TPR-DB ](/docs/TUTORIAL_5_CRITT.md)
 
 The tutorials explain how the base metrics can be obtained. Let us know if anything is unclear.
 
