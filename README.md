@@ -36,15 +36,19 @@ pip install lingx
 Let's run a simple token-based incomplete dependencies difficulty measure. All you need to do is to make import related methode as follows:
 
 ```python
-from lingx.idt import get_nested_np_modifiers_score
-from lingx.tools.critt 
+from lingx.core.lang_model import get_nlp_object
+
+from lingx.metrics.psycholingual.idt import get_idt_complexity
+from lingx.metrics.psycholingual.dlt import get_dlt_complexity
+from lingx.metrics.psycholingual.idt_dlt import get_idt_dlt_complexity
+
 ```
 
 This should print:
 
 ```console
-from lingx.metrics.bilingual import get_nested_np_modifiers_score
-from lingx.utils.critt 
+[['The', 1], ['horse', 1], ['raced', 3], ['past', 3], ['the', 4], ['barn', 1], ['.', 0]]
+[['The', 1], ['horse', 1], ['raced', 4], ['past', 2], ['the', 3], ['barn', 3], ['fell', 2], ['.', 0]]
 ```
 
 ## Tutorials
