@@ -44,13 +44,18 @@ def aggregate_tokens(tokens_complexity, aggregation_type="sum"):
 
     list_tokens_complexity=[token[1] for token in tokens_complexity]
 
-    if aggregation_type=="sum":
-        return(np.sum(list_tokens_complexity))
-    elif aggregation_type=="min":
-        return(np.min(list_tokens_complexity))
-    elif aggregation_type=="max":
-        return(np.max(list_tokens_complexity))
-    elif aggregation_type=="mean":
-        return(np.average(list_tokens_complexity))
+    if len(list_tokens_complexity)>0:
+
+        if aggregation_type=="sum":
+            return np.sum(list_tokens_complexity)
+        elif aggregation_type=="min":
+            return np.min(list_tokens_complexity)
+        elif aggregation_type=="max":
+            return np.max(list_tokens_complexity)
+        elif aggregation_type=="mean":
+            return np.average(list_tokens_complexity)
+        else:
+            return None
+
     else:
-        return(None)
+        return 0

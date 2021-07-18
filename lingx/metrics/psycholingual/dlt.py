@@ -29,6 +29,7 @@ def get_dlt_complexity(input, nlp):
     doc = nlp(input)
     links , links_compact = get_linguistic_features(doc)
     backward_longest_links=get_longest_link(links, links_compact)
+    print (backward_longest_links)
 
     dlt_complexity_partial=[]
     for link in backward_longest_links:

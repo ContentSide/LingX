@@ -1,17 +1,17 @@
 import stanza
 
-def download_stanza_model(stanza_model):
-    stanza.download(stanza_model)
+def download_stanza_model(stanza_model, package="default"):
+    stanza.download(stanza_model, package=package)
 
 
-def get_nlp_object(stanza_model, use_critt_tokenization = True):
+def get_nlp_object(stanza_model, use_critt_tokenization = True, package="default"):
 
     if use_critt_tokenization:
-        nlp = stanza.Pipeline(stanza_model, processors='tokenize, pos, lemma, depparse', tokenize_pretokenized=True)
+        nlp = stanza.Pipeline(stanza_model, package=package, processors='tokenize, pos, lemma, depparse', tokenize_pretokenized=True)
     else:
-        nlp = stanza.Pipeline(stanza_model, processors='tokenize, pos, lemma, depparse', tokenize_pretokenized=False)
+        nlp = stanza.Pipeline(stanza_model, package=package,  processors='tokenize, pos, lemma, depparse', tokenize_pretokenized=False)
 
-    return(nlp)
+    return nlp
 
 
 

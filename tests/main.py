@@ -1,40 +1,41 @@
-from lingx.metrics.psycholingual.idt import get_idt_complexity
-from lingx.metrics.psycholingual.dlt import get_dlt_complexity
-from lingx.metrics.psycholingual.idt_dlt import get_idt_dlt_complexity
-
 from lingx.core.lang_model import get_nlp_object
+from lingx.utils.compare import compare_sentences_lx
 
-nlp_en = get_nlp_object("en", use_critt_tokenization = True)
-idt = get_idt_complexity( 
-                        [['This', 'is', 'token.ization', 'done', '', 'way!'], ['Sentence', 'split,', 'too!']], 
-                        nlp_en
-                        )
-print(idt)
-
-nlp_en = get_nlp_object("en", use_critt_tokenization = False)
-idt = get_dlt_complexity( 
-                        "This is tokenization done my way! Sentence split too!",
-                        nlp_en
-                        )
-print(idt)
+nlp_en = get_nlp_object("en", use_critt_tokenization = False, package="partut")
 
 
-nlp_en = get_nlp_object("en", use_critt_tokenization = False)
-dlt = get_idt_dlt_complexity( 
-                        "The reporter who the senator who John met attacked disliked the editor",
-                        nlp_en
-                        )
-print(dlt)
+sentences = [
+    ["The reporter who the senator who I met attacked disliked the editor.",
+    "The reporter who the senator who John met attacked disliked the editor."],
+    ["The reporter who sent the photographer to the editor hoped for a good story.",
+    "The reporter who the photographer sent to the editor hoped for a good story."],
+    ["The horse raced past the barn.", 
+    "The horse raced past the barn fell."],
+    ["The dog that chased the cat that saw the rat barked.", 
+    "The cheese that the rat that the cat saw ate stank."],
+    ["Jack was surprised that two plus two equals four.", 
+    "The fact that two plus two equals four surprised Jack."],
+    ["Ingrid was astonished that Jack was surprised that two plus two equals four.", 
+    "The fact that that two plus two equals four surprised Jack astonished Ingrid."],
+    ["Frank was bothered that Ingrid was astonished that Jack was surprised that two plus two equals four.", 
+    "The fact that that that that that two plus two equals four surprised Jack astonished Ingrid bothered Frank."],
+    ["John gave Bill the painting that Mary hated.", 
+    "John gave the painting that Mary hated to Bill."],
+    ["That two plus two equals four surprised Jack.",
+    "That that two plus two equals four surprised Jack astonished Ingrid."]
+]
 
-dlt = get_idt_dlt_complexity( 
-                        "The reporter who the senator who I met attacked disliked the editor",
-                        nlp_en
-                        )
-print(dlt)
+for sent in sentences:
+    result = compare_sentences_lx(
+                        sent[0], 
+                        sent[1],
+                        nlp=nlp_en,
+                        complexity_type="idt_dlt", 
+                        aggregation_type="mean")
 
-nlp_en = get_nlp_object("en", use_critt_tokenization = True)
-dlt = get_dlt_complexity( 
-                        [['This', 'is', 'token.ization', 'done', '', 'way!'], ['Sentence', 'split,', 'too!']], 
-                        nlp_en
-                        )
-print(dlt)
+    print(result[0])
+    print(result[1])
+    print(result[2])
+    print("__________________")
+
+
