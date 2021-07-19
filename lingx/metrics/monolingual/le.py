@@ -1,4 +1,4 @@
-# A module for calculating Left Embeddedness in a sentence (either in tokens or string format)
+# A module for calculating Left Embeddedness in a sentence
 
 import numpy as np
 
@@ -48,9 +48,13 @@ def get_le_score(input, nlp, aggregator="sum"):
     Argument `aggregation_type` : has values `sum` , `mean` or `max`
 
     """
+
+    doc = get_doc(input, nlp, ignore_empty_input=True)
+
+    if doc==[]:
+        return 0
+
     doc_verb_indicators=[]
-    doc = get_doc(input, nlp)
-    
     for sent in doc.sentences:
         verb_indicator=[]
         for word in sent.words:
