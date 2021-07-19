@@ -1,6 +1,8 @@
 from lingx.core.lang_model import get_nlp_object
 from lingx.utils.compare import compare_sentences_lx
 
+from lingx.metrics.monolingual.le import get_le_score
+
 nlp_en = get_nlp_object("en", use_critt_tokenization = False, package="partut")
 
 
@@ -24,6 +26,11 @@ sentences = [
     ["That two plus two equals four surprised Jack.",
     "That that two plus two equals four surprised Jack astonished Ingrid."]
 ]
+
+# tokens= [['This', 'is', 'token.ization', 'done', 'my', 'way!'], ['Sentence', 'split,', 'too!']]
+# le = get_le_score(tokens, nlp=nlp_en, aggregator="max")
+
+# print(le)
 
 for sent in sentences:
     result = compare_sentences_lx(

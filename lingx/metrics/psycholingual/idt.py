@@ -1,4 +1,8 @@
-from lingx.core.lang_features import get_linguistic_features, convert_blank2space
+# A module for calculating Incomplete Dependency Theory in a sentence (either in tokens or string format)
+
+from lingx.core.lang_features import get_linguistic_features
+from lingx.core.lang_model import get_doc
+
 
 
 def get_idt_complexity(input, nlp):
@@ -11,9 +15,8 @@ def get_idt_complexity(input, nlp):
     If input type is string the input should be a simple standard python string 
     """
     idt_complexity=[]
-    if isinstance(input, list):
-        input = convert_blank2space(input)
-    doc = nlp(input)
+    doc = get_doc(input, nlp)
+    
     links , links_compact = get_linguistic_features(doc)
     
 

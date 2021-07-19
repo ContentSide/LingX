@@ -1,3 +1,5 @@
+# A module for calculating Incomplete Dependency and Distance Locality Theories in a sentence (either in tokens or string format)
+
 from lingx.metrics.psycholingual.idt import get_idt_complexity
 from lingx.metrics.psycholingual.dlt import get_dlt_complexity
 
@@ -24,9 +26,6 @@ def get_idt_dlt_complexity(input, nlp):
 
     If input type is string the input should be a simple standard python string 
     """
-    if isinstance(input, list):
-        input = convert_blank2space(input)
-
     combined_complexity = []
     
     idt = get_idt_complexity(input, nlp)

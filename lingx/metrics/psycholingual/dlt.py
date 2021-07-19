@@ -1,4 +1,8 @@
-from lingx.core.lang_features import get_linguistic_features, convert_blank2space
+# A module for calculating Distance Locality Theory in a sentence (either in tokens or string format)
+
+from lingx.core.lang_features import get_linguistic_features
+from lingx.core.lang_model import get_doc
+
 
 acceptable_discourse_referents = ["PROPN", "NOUN", "VERB"]
 
@@ -24,9 +28,8 @@ def get_dlt_complexity(input, nlp):
 
     If input type is string the input should be a simple standard python string 
     """
-    if isinstance(input, list):
-        input = convert_blank2space(input)
-    doc = nlp(input)
+    doc = get_doc(input, nlp)
+    
     links , links_compact = get_linguistic_features(doc)
     backward_longest_links=get_longest_link(links, links_compact)
     print (backward_longest_links)

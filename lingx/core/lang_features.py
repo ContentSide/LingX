@@ -21,25 +21,6 @@ def get_linguistic_features(doc):
     return links, links_compact
 
 
-
-# I order to avoid following stanza libraray error this subroutine should be run
-# AssertionError: id and text should be included for the token
-def convert_blank2space(input):
-
-    tokens_list=[]
-    for items in input:
-        tokens=[]
-        for token in items:
-            if token == "":
-                tokens.append(" ")
-            else:
-                tokens.append(token)
-        tokens_list.append(tokens)
-    
-    return tokens_list
-
-
-
 def aggregate_tokens(tokens_complexity, aggregation_type="sum"):
 
     list_tokens_complexity=[token[1] for token in tokens_complexity]
@@ -59,3 +40,17 @@ def aggregate_tokens(tokens_complexity, aggregation_type="sum"):
 
     else:
         return 0
+
+def is_aux_a_main_verb(word):
+    if word.upos=="AUX" and  word.deprel=="aux":
+        return False
+    elif word.upos=="AUX" and  word.deprel!="aux":
+        return True
+    else:
+        return False
+
+def is_a_main_verb(word):
+    if word.upos=="VERB":
+        return True
+    else:
+        return False
