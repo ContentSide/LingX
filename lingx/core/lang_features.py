@@ -36,7 +36,7 @@ def aggregate_tokens(tokens_complexity, aggregation_type="sum"):
         elif aggregation_type=="mean":
             return np.average(list_tokens_complexity)
         else:
-            return None
+            raise Exception("Set `aggregation_type` to one of the values `sum`, `mean`, `min` or `max`.")
 
     else:
         return 0

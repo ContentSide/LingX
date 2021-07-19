@@ -36,12 +36,17 @@ def get_le_from_verb(verb_indicator, aggregator="sum"):
 
 def get_le_score(input, nlp, aggregator="sum"):
     """
+    Argument `input`: 
     If input type is tokens the input should be in this format 
         [['token_1_of_sent_1', 'token_2_of_sent_1', ...],['token_1_of_sent_2', 'token_2_of_sent_2', ...]]
         Example : 
-        [['This', 'is', 'token.ization', 'done', 'my', 'way!'], ['Sentence', 'split,', 'too!']]  
+        [['This', 'is', 'token.ization', 'done', 'my', 'way!'], ['Sentence', 'split,', 'too!']])  
 
     If input type is string the input should be a simple standard python string 
+
+    Argument `result_format`: has values `token` or `segment`
+    Argument `aggregation_type` : has values `sum` , `mean` or `max`
+
     """
     doc_verb_indicators=[]
     doc = get_doc(input, nlp)

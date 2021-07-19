@@ -38,7 +38,7 @@ for sent in sentences:
                         sent[1],
                         nlp=nlp_en,
                         complexity_type="idt_dlt", 
-                        aggregation_type="mean")
+                        aggregation_type="sum")
 
     print(result[0])
     print(result[1])

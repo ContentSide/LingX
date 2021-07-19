@@ -1,8 +1,8 @@
 from lingx.core.lang_model import get_nlp_object
 
-from lingx.metrics.psycholingual.idt import get_idt_complexity
-from lingx.metrics.psycholingual.dlt import get_dlt_complexity
-from lingx.metrics.psycholingual.idt_dlt import get_idt_dlt_complexity
+from lingx.metrics.psycholingual.idt import get_idt_score
+from lingx.metrics.psycholingual.dlt import get_dlt_score
+from lingx.metrics.psycholingual.idt_dlt import get_idt_dlt_score
 
 from lingx.core.lang_features import aggregate_tokens
 
@@ -16,24 +16,15 @@ def compare_sentences_lx(
 
 
     if complexity_type == "idt":
-        sent_a_tokens = get_idt_complexity(sent_a, nlp)
-        sent_b_tokens = get_idt_complexity(sent_b, nlp)
-
-        sent_a_result = aggregate_tokens(sent_a_tokens, aggregation_type)
-        sent_b_result = aggregate_tokens(sent_b_tokens, aggregation_type)
+        result_a = get_idt_score(sent_a, nlp, result_format="segment" , aggregation_type=aggregation_type)
+        result_b = get_idt_score(sent_b, nlp, result_format="segment" , aggregation_type=aggregation_type)
 
     elif complexity_type == "dlt":
-        sent_a_tokens = get_dlt_complexity(sent_a, nlp)
-        sent_b_tokens = get_dlt_complexity(sent_b, nlp)
-
-        sent_a_result = aggregate_tokens(sent_a_tokens, aggregation_type)
-        sent_b_result = aggregate_tokens(sent_b_tokens, aggregation_type)
+        result_a = get_dlt_score(sent_a, nlp, result_format="segment" , aggregation_type=aggregation_type)
+        result_b = get_dlt_score(sent_b, nlp, result_format="segment" , aggregation_type=aggregation_type)
 
     if complexity_type == "idt_dlt":
-        sent_a_tokens = get_idt_dlt_complexity(sent_a, nlp)
-        sent_b_tokens = get_idt_dlt_complexity(sent_b, nlp)
+        result_a = get_idt_dlt_score(sent_a, nlp, result_format="segment" , aggregation_type=aggregation_type)
+        result_b = get_idt_dlt_score(sent_b, nlp, result_format="segment" , aggregation_type=aggregation_type)
 
-        sent_a_result = aggregate_tokens(sent_a_tokens, aggregation_type)
-        sent_b_result = aggregate_tokens(sent_b_tokens, aggregation_type)
-
-    return (sent_b_result > sent_a_result, sent_a_tokens, sent_b_tokens)
+    return (result_b[1] > result_a[1], result_a[0], result_b[0])
