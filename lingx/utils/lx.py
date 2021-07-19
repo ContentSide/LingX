@@ -28,3 +28,23 @@ def compare_sentences_lx(
         result_b = get_idt_dlt_score(sent_b, nlp, result_format="segment" , aggregation_type=aggregation_type)
 
     return (result_b[1] > result_a[1], result_a[0], result_b[0])
+
+
+
+def get_sentence_lx(
+                    input,
+                    nlp,
+                    result_format="token",
+                    complexity_type="idt_dlt", 
+                    aggregation_type="sum"):
+
+    if complexity_type == "idt":
+        score = get_idt_score(input, nlp, result_format=result_format , aggregation_type=aggregation_type)
+    elif complexity_type == "dlt":
+        score = get_dlt_score(input, nlp, result_format=result_format , aggregation_type=aggregation_type)
+    elif complexity_type == "idt_dlt":
+        score = get_idt_dlt_score(input, nlp, result_format=result_format , aggregation_type=aggregation_type)
+    else:
+        raise Exception("Set `complexity_type` to one of the following values: `idt` , `dlt` or `idt_dlt`.")
+    
+    return score
