@@ -2,6 +2,8 @@ from lingx.core.lang_model import get_nlp_object
 from lingx.utils.compare import compare_sentences_lx
 
 from lingx.metrics.monolingual.le import get_le_score
+from lingx.metrics.monolingual.mbn import get_mbn_score
+
 
 nlp_en = get_nlp_object("en", use_critt_tokenization = False, package="partut")
 
@@ -24,13 +26,17 @@ sentences = [
     ["John gave Bill the painting that Mary hated.", 
     "John gave the painting that Mary hated to Bill."],
     ["That two plus two equals four surprised Jack.",
-    "That that two plus two equals four surprised Jack astonished Ingrid."]
+    "That that two plus two equals four surprised Jack astonished Ingrid."],
+    ["",""]
 ]
 
 # tokens= [['This', 'is', 'token.ization', 'done', 'my', 'way!'], ['Sentence', 'split,', 'too!']]
 # le = get_le_score(tokens, nlp=nlp_en, aggregator="max")
+# mbn = get_mbn_score(tokens, nlp=nlp_en, aggregator="max")
 
-# print(le)
+
+
+# print(le, mbn)
 
 for sent in sentences:
     result = compare_sentences_lx(
@@ -43,6 +49,9 @@ for sent in sentences:
     print(result[0])
     print(result[1])
     print(result[2])
+    le = get_le_score(sent[0], nlp=nlp_en, aggregator="mean")
+    mbn = get_mbn_score(sent[1], nlp=nlp_en, aggregator="mean")
+    print(le, mbn)
     print("__________________")
 
 

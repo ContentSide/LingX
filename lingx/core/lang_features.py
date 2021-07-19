@@ -1,4 +1,5 @@
 import numpy as np
+from treelib import Tree, Node
 
 def get_linguistic_features(doc):
     links=[]
@@ -54,3 +55,27 @@ def is_a_main_verb(word):
         return True
     else:
         return False
+
+def is_a_noun(word):
+    if word.upos=="NOUN" or word.upos=="PROPN":
+        return True
+    else:
+        return False
+
+
+def convert_dep2tree(list_pairs):
+    tree = Tree()
+    tree.create_node("root", 0)
+    pairs = list_pairs.copy()
+
+    while (len(pairs)):
+        for item in tree.leaves():
+            planned_to_be_deleted=[]
+            for pair in pairs:
+                if item.identifier == pair[0]:
+                    tree.create_node(pair[3], pair[1], parent=pair[0])
+                    planned_to_be_deleted.append(pair)
+            
+            for pair in planned_to_be_deleted:
+                pairs.remove(pair)
+    return(tree)

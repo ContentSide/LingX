@@ -33,7 +33,16 @@ def convert_blank2space(input):
 
 # `use_critt_tokenization` argument is problematic in general 
 # the following procedure handles the complexity
-def get_doc(input, nlp):
+def get_doc(input, nlp, ignore_empty_input=False):
+    
+    ignore_empty_list = [
+                            "", 
+                            [], 
+                            [[]]
+                        ]
+
+    if ignore_empty_input and input in ignore_empty_list:
+            return []
 
     if nlp[1] and isinstance(input, list):
         input = convert_blank2space(input)
