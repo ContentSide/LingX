@@ -10,6 +10,9 @@ from lingx.metrics.monolingual.mbn import get_mbn_score
 from lingx.metrics.bilingual.bcr import get_bcr_score
 
 from lingx.utils.critt.aligner import generate_alignment_pipelines
+from lingx.utils.critt.tables import readTPRDBtables
+from lingx.utils.critt.tables import convert_st2segment , convert_tt2segment
+from lingx.utils.critt.tables import expand_table_psycholingual
 
 
 
@@ -62,34 +65,34 @@ sentences = [
 #     print("__________________")
 
 
-tokens_source = [['It', 'has', 'the', 'right', 'members', 'and', 'the', 'right', 'mandate', '.']]
-tokens_target = [['在', '今年', '的', '四月', '阿布特', '部长', '跟', '安倍', '部长', '同意', '为', '增强', '经济发展', '增强', '后', '合作', '，', '并且', '为', '太平洋', '地区', '的', '和平', '和', '稳定', '增强', '合作', '。']]
+# tokens_source = [['It', 'has', 'the', 'right', 'members', 'and', 'the', 'right', 'mandate', '.']]
+# tokens_target = [['在', '今年', '的', '四月', '阿布特', '部长', '跟', '安倍', '部长', '同意', '为', '增强', '经济发展', '增强', '后', '合作', '，', '并且', '为', '太平洋', '地区', '的', '和平', '和', '稳定', '增强', '合作', '。']]
 
 
-source_target_alignments = [
+# source_target_alignments = [
     
-    [[5, 9], [5, 6, 188]], 
+#     [[5, 9], [5, 6, 188]], 
     
-    [[8], [11]]
+#     [[8], [11]]
     
-    ]
+#     ]
 
 
-bcr_score = get_bcr_score(
-                                nlp_source = nlp_en,
-                                nlp_target = nlp_zh,
-                                complexity_type = "idt_dlt", # "idt", "dlt", "idt_dlt"
-                                input_source = tokens_source,
-                                input_target = tokens_target,
-                                source_target_alignments = source_target_alignments,
-                                complexity_aggregation_function= "sum",    # max, mean, sum
-                                first_aggregation_function= "sum",         # max, mean, sum
-                                second_aggregation_function = "sum",       # max, mean, sum
-                                robust=False,
-                                bcr_error_value=0)
+# bcr_score = get_bcr_score(
+#                                 nlp_source = nlp_en,
+#                                 nlp_target = nlp_zh,
+#                                 complexity_type = "idt_dlt", # "idt", "dlt", "idt_dlt"
+#                                 input_source = tokens_source,
+#                                 input_target = tokens_target,
+#                                 source_target_alignments = source_target_alignments,
+#                                 complexity_aggregation_function= "sum",    # max, mean, sum
+#                                 first_aggregation_function= "sum",         # max, mean, sum
+#                                 second_aggregation_function = "sum",       # max, mean, sum
+#                                 robust=False,
+#                                 bcr_error_value=0)
     
 
-print(bcr_score)
+# print(bcr_score)
 
 
 
@@ -105,3 +108,22 @@ print(bcr_score)
 
 
 # print(score)
+
+
+path_to_tprdb = "resources/TPRDB/EN-ZH_IMBst18/"
+df_sg = readTPRDBtables(['Tables/'], "*sg", verbose=1, path=path_to_tprdb)
+df_st = readTPRDBtables(['Tables/'], "*st", verbose=1, path=path_to_tprdb)
+df_tt = readTPRDBtables(['Tables/'], "*tt", verbose=1, path=path_to_tprdb)
+
+alignments_offset = generate_alignment_pipelines(df_st, df_tt)
+
+
+analysis_st = convert_st2segment(df_st)
+analysis_tt = convert_tt2segment(df_tt)
+
+
+analysis_st = expand_table_psycholingual(analysis_st[:5], nlp_en, token_column="SToken")
+analysis_tt = expand_table_psycholingual(analysis_tt[:5], nlp_zh, token_column="TToken")
+
+print(analysis_st)
+print(analysis_tt)
