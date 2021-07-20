@@ -10,9 +10,11 @@ from lingx.metrics.monolingual.mbn import get_mbn_score
 from lingx.metrics.bilingual.bcr import get_bcr_score
 
 from lingx.utils.critt.aligner import generate_alignment_pipelines
+
 from lingx.utils.critt.tables import readTPRDBtables
 from lingx.utils.critt.tables import convert_st2segment , convert_tt2segment
-from lingx.utils.critt.tables import expand_table_psycholingual
+from lingx.utils.critt.tables import expand_table_psycholingual , expand_table_monolingual , expand_table_bilingual
+from lingx.utils.critt.tables import merge_st_tt , adhoc_cleanup
 
 
 
@@ -125,5 +127,15 @@ analysis_tt = convert_tt2segment(df_tt)
 analysis_st = expand_table_psycholingual(analysis_st[:5], nlp_en, token_column="SToken")
 analysis_tt = expand_table_psycholingual(analysis_tt[:5], nlp_zh, token_column="TToken")
 
-print(analysis_st)
-print(analysis_tt)
+analysis_st =  expand_table_monolingual(analysis_st, nlp_en, token_column="SToken")
+analysis_tt =  expand_table_monolingual(analysis_tt, nlp_zh, token_column="TToken")
+
+
+analysis_st_tt = merge_st_tt(analysis_st, analysis_tt, alignments_offset)
+
+# analysis_st_tt = adhoc_cleanup(analysis_st_tt)
+
+analysis_st_tt = expand_table_bilingual(analysis_st_tt, nlp_en, nlp_zh)
+
+print(analysis_st_tt)
+print(analysis_st_tt.columns)

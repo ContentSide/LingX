@@ -79,3 +79,12 @@ def generate_alignment_pipelines(df_st, df_tt):
     alignments_offset =  generate_reindexed_alignment_list(alignments_original, offset_list)
 
     return alignments_offset
+
+
+def get_alignment_offset(part, text, ttseg, alignments_offset):
+    global_id = str(part) + "_" + str(text) + "_" + str(ttseg)
+
+    for item in alignments_offset:
+        if item == global_id:
+            return alignments_offset[item]
+    return None

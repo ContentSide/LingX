@@ -3,6 +3,8 @@ from lingx.core.lang_model import get_nlp_object
 from lingx.metrics.psycholingual.idt import get_idt_score
 from lingx.metrics.psycholingual.dlt import get_dlt_score
 from lingx.metrics.psycholingual.idt_dlt import get_idt_dlt_score
+from lingx.metrics.monolingual.le import get_le_score
+from lingx.metrics.monolingual.mbn import get_mbn_score
 
 from lingx.core.lang_features import aggregate_tokens
 
@@ -47,5 +49,21 @@ def get_sentence_lx(
         score = get_idt_dlt_score(input, nlp, result_format=result_format , aggregation_type=aggregation_type)
     else:
         raise Exception("Set `complexity_type` to one of the following values: `idt` , `dlt` or `idt_dlt`.")
+    
+    return score
+
+
+
+def get_sentence_mono_lingual(
+                                input, nlp,
+                                mono_lingual_type="le",  # 'le' or 'mbn'
+                                aggregation_type="sum"):
+
+    if mono_lingual_type == "le":
+        score = get_le_score(input, nlp, aggregation_type)
+    elif mono_lingual_type == "mbn":
+        score = get_mbn_score(input, nlp, aggregation_type)
+    else:
+        raise Exception("Set `mono_lingual_type` to one of the following values: `le` or `mbn`.")
     
     return score
