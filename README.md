@@ -12,6 +12,7 @@
 - A library for calculating some of the psycholinguistics complexity metrics.  
 - A library for obtaining helpful metrics for translational process studies.  
 - A library for different factors related to the text analysis.  
+- A library with extended modules to easily integerate translational studies in CRITT TPR-DB.  
 
 ---
 
