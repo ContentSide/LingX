@@ -71,7 +71,12 @@ The tutorials explain how the base metrics can be obtained. Let us know if anyth
 Please cite [the following paper]:
 
 ```
-@inproceedings{
+@inproceedings{Zou2021
+  title={Syntactic Complexity and Translation Performance in English-to-Chinese Sight Translation},
+  author={Zou, Longhui and Mirzapour, Mehdi and Jacquenet, Hélène},
+  booktitle={Applied Linguistics and Professional Practice 2021},
+  year={2021},
+  publisher={Translational Data Analytics Institute, The Ohio State University}
 }
 ```
 
