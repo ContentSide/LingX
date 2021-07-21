@@ -1,3 +1,24 @@
+"""
+The module is about CRITT TPR-DB alignment.
+
+The most important function in this module is `generate_alignment_pipelines`
+
+It takes as the inputs ST and TT dataframes and returns alignment dictionary in the following format
+
+{"P08_5_3":
+            [   
+                [[5, 9], [5, 6, 18]],  
+                [[8], [11]]
+            ]
+}
+
+Note that as for the Participant=08 , Text=5 , Segment=3 in the above 
+example the source tokens [5,9] is aligned with target tokens [5,6,18]
+and the source token [8] is aligned with target token [11] 
+
+"""
+
+
 import pandas as pd
 
 
