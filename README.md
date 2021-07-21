@@ -68,7 +68,7 @@ The tutorials explain how the base metrics can be obtained. Let us know if anyth
 
 ## Citing LingX
 
-Please cite [the following paper]:
+Please cite:
 
 ```
 @inproceedings{Zou2021
