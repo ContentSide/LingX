@@ -205,7 +205,7 @@ def merge_st_tt(analysis_st, analysis_tt, alignments_offset):
 
 def expand_table_error(analysis_st_tt, error_file_path):
 
-    errors = pd.read_csv(file_path, index_col=False)
+    errors = pd.read_csv(error_file_path, index_col=False)
 
     analysis_st_tt["SessionSeg"] = analysis_st_tt.apply(lambda x :x["Part"] + "_Ist" + str(x["Text"])+ "_" + str(x["TTseg"]), axis=1)
     analysis_st_tt = pd.merge(analysis_st_tt,
