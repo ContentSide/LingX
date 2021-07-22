@@ -3,7 +3,7 @@
 import pandas as pd
 import numpy as np
 import glob
-
+0
 from lingx.utils.lx import get_sentence_lx, get_sentence_mono_lingual
 from lingx.utils.critt.aligner import get_alignment_offset
 
@@ -175,7 +175,7 @@ def expand_table_bilingual(analysis_st_tt, nlp_source, nlp_target):
                                             bcr_error_value=0
                                     )
 
-                label = "BCR" +  "_" + lx.capitalize() +"_" + first_agg.capitalize() + "_" + second_agg.capitalize()
+                label = "BCR" +  "_" + lx.toUpperCase() +"_" + first_agg.toUpperCase() + "_" + second_agg.toUpperCase()
                 df[label] = df.apply(func, axis=1)
 
     return df
@@ -202,28 +202,3 @@ def merge_st_tt(analysis_st, analysis_tt, alignments_offset):
     return analysis_tt_extended
 
 
-
-def adhoc_cleanup(analysis_st_tt):
-
-    df = analysis_st_tt.copy()
-
-    condition = (df["Part"]=="P07") & (df["Text"]==1)  & (df["TTseg"]==4)
-    df = df.drop(df[condition].index)
-
-    condition = (df["Part"]=="P07") & (df["Text"]==1)  & (df["TTseg"]==5)
-    df = df.drop(df[condition].index)
-
-    condition = (df["Part"]=="P07") & (df["Text"]==1)  & (df["TTseg"]==6)
-    df = df.drop(df[condition].index)
-
-
-    condition = (df["Part"]=="P01") & (df["Text"]==5)  & (df["TTseg"]==4)
-    df = df.drop(df[condition].index)
-
-    condition = (df["Part"]=="P01") & (df["Text"]==5)  & (df["TTseg"]==5)
-    df = df.drop(df[condition].index)
-
-    condition = (df["Part"]=="P01") & (df["Text"]==5)  & (df["TTseg"]==6)
-    df = df.drop(df[condition].index)
-
-    return df
