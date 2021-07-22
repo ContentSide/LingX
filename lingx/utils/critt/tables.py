@@ -167,7 +167,7 @@ def expand_table_bilingual(analysis_st_tt, nlp_source, nlp_target):
                                             complexity_type = "idt_dlt", # "idt", "dlt", "idt_dlt"
                                             input_source = x["SToken"],
                                             input_target = x["TToken"],
-                                            source_target_alignments = x["alignment"],
+                                            source_target_alignments = x["Alignment"],
                                             complexity_aggregation_function= lx,         # max, mean, sum
                                             first_aggregation_function= first_agg,       # max, mean, sum
                                             second_aggregation_function = second_agg,    # max, mean, sum
@@ -186,14 +186,13 @@ def expand_table_bilingual(analysis_st_tt, nlp_source, nlp_target):
 def merge_st_tt(analysis_st, analysis_tt, alignments_offset):
 
     analysis_st_renamed = analysis_st.rename(columns = {"STseg":"TTseg"})
-    analysis_st_renamed = analysis_st_renamed[["Part", "Text", "TTseg", "SToken"]]
 
     analysis_tt_extended = pd.merge(analysis_tt,
                                     analysis_st_renamed,
                                     on=["Part", "Text", "TTseg"], 
                                     how='left')
 
-    analysis_tt_extended["alignment"] = analysis_tt_extended.apply(
+    analysis_tt_extended["Alignment"] = analysis_tt_extended.apply(
                                                                     lambda x: get_alignment_offset(
                                                                                 x["Part"], x["Text"], x["TTseg"], 
                                                                                 alignments_offset),
