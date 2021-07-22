@@ -3,7 +3,7 @@
 import pandas as pd
 import numpy as np
 import glob
-0
+
 from lingx.utils.lx import get_sentence_lx, get_sentence_mono_lingual
 from lingx.utils.critt.aligner import get_alignment_offset
 
@@ -202,3 +202,14 @@ def merge_st_tt(analysis_st, analysis_tt, alignments_offset):
     return analysis_tt_extended
 
 
+
+def expand_table_error(analysis_st_tt, error_file_path):
+
+    errors = pd.read_csv(file_path, index_col=False)
+
+    analysis_st_tt["SessionSeg"] = analysis_st_tt.apply(lambda x :x["Part"] + "_Ist" + str(x["Text"])+ "_" + str(x["TTseg"]), axis=1)
+    analysis_st_tt = pd.merge(analysis_st_tt,
+                                    errors,
+                                    on=["SessionSeg"],
+                                    how='left')
+    return analysis_st_tt
