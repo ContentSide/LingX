@@ -59,17 +59,38 @@ def expand_table_psycholingual(df_analysis, nlp, token_column="SToken"):
 
     df = df_analysis.copy()
 
-    operation_list = [
-                        ["idt","max","IDT_MAX"],
-                        ["idt","mean","IDT_MEAN"],
-                        ["idt","sum","IDT_SUM"],
-                        ["dlt","max","DLT_MAX"],
-                        ["dlt","mean","DLT_MEAN"],
-                        ["dlt","sum","DLT_SUM"],
-                        ["idt_dlt","max","IDT_DLT_MAX"],
-                        ["idt_dlt","mean","IDT_DLT_MEAN"],
-                        ["idt_dlt","sum","IDT_DLT_SUM"],
+    operation_list_st = [
+                        ["idt","max","IDT_MAX_ST"],
+                        ["idt","mean","IDT_MEAN_ST"],
+                        ["idt","sum","IDT_SUM_ST"],
+                        ["dlt","max","DLT_MAX_ST"],
+                        ["dlt","mean","DLT_MEAN_ST"],
+                        ["dlt","sum","DLT_SUM_ST"],
+                        ["idt_dlt","max","IDT_DLT_MAX_ST"],
+                        ["idt_dlt","mean","IDT_DLT_MEAN_ST"],
+                        ["idt_dlt","sum","IDT_DLT_SUM_ST"],
     ]
+
+    operation_list_tt = [
+                        ["idt","max","IDT_MAX_TT"],
+                        ["idt","mean","IDT_MEAN_TT"],
+                        ["idt","sum","IDT_SUM_TT"],
+                        ["dlt","max","DLT_MAX_TT"],
+                        ["dlt","mean","DLT_MEAN_TT"],
+                        ["dlt","sum","DLT_SUM_TT"],
+                        ["idt_dlt","max","IDT_DLT_MAX_TT"],
+                        ["idt_dlt","mean","IDT_DLT_MEAN_TT"],
+                        ["idt_dlt","sum","IDT_DLT_SUM_TT"],
+    ]
+
+
+    if token_column == "SToken":
+        operation_list = operation_list_st
+    elif token_column == "TToken":
+        operation_list = operation_list_tt
+    else:
+        raise Exception("Set `token_column` to one of the following values: `SToken` or `TToken`.")
+
 
 
     for item in operation_list:
@@ -92,14 +113,33 @@ def expand_table_monolingual(df_analysis, nlp, token_column="SToken"):
 
     df = df_analysis.copy()
 
-    operation_list = [
-                        ["le","mean","LE_MEAN"],
-                        ["le","max","LE_MAX"],
-                        ["le","sum","LE_SUM"],
-                        ["mbn","mean","MBN_MEAN"],
-                        ["mbn","max","MBN_MAX"],
-                        ["mbn","sum","MBN_SUM"]
+    operation_list_st = [
+                        ["le","mean","LE_MEAN_ST"],
+                        ["le","max","LE_MAX_ST"],
+                        ["le","sum","LE_SUM_ST"],
+                        ["mbn","mean","MBN_MEAN_ST"],
+                        ["mbn","max","MBN_MAX_ST"],
+                        ["mbn","sum","MBN_SUM_ST"]
     ]
+
+
+    operation_list_tt = [
+                        ["le","mean","LE_MEAN_TT"],
+                        ["le","max","LE_MAX_TT"],
+                        ["le","sum","LE_SUM_TT"],
+                        ["mbn","mean","MBN_MEAN_TT"],
+                        ["mbn","max","MBN_MAX_TT"],
+                        ["mbn","sum","MBN_SUM_TT"]
+    ]
+
+
+    if token_column == "SToken":
+        operation_list = operation_list_st
+    elif token_column == "TToken":
+        operation_list = operation_list_tt
+    else:
+        raise Exception("Set `token_column` to one of the following values: `SToken` or `TToken`.")
+
 
     for item in operation_list:
 
@@ -135,7 +175,7 @@ def expand_table_bilingual(analysis_st_tt, nlp_source, nlp_target):
                                             bcr_error_value=0
                                     )
 
-                label = "bilingual_score" +  "_" + lx +"_" + first_agg + "_" + second_agg
+                label = "BCR" +  "_" + lx.capitalize() +"_" + first_agg.capitalize() + "_" + second_agg.capitalize()
                 df[label] = df.apply(func, axis=1)
 
     return df
