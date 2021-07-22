@@ -175,7 +175,7 @@ def expand_table_bilingual(analysis_st_tt, nlp_source, nlp_target):
                                             bcr_error_value=0
                                     )
 
-                label = "BCR" +  "_" + lx.toUpperCase() +"_" + first_agg.toUpperCase() + "_" + second_agg.toUpperCase()
+                label = "BCR" +  "_" + lx.upper() +"_" + first_agg.upper() + "_" + second_agg.upper()
                 df[label] = df.apply(func, axis=1)
 
     return df
