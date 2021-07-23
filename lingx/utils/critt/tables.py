@@ -150,7 +150,7 @@ def expand_table_monolingual(df_analysis, nlp, token_column="SToken"):
     return df
 
 
-def expand_table_bilingual(analysis_st_tt, nlp_source, nlp_target):
+def expand_table_bilingual(analysis_st_tt, nlp_source, nlp_target, robust=True, bcr_error_value=0):
 
     df = analysis_st_tt.copy()
 
@@ -171,8 +171,8 @@ def expand_table_bilingual(analysis_st_tt, nlp_source, nlp_target):
                                             complexity_aggregation_function= lx,         # max, mean, sum
                                             first_aggregation_function= first_agg,       # max, mean, sum
                                             second_aggregation_function = second_agg,    # max, mean, sum
-                                            robust=True,
-                                            bcr_error_value=0
+                                            robust=robust,
+                                            bcr_error_value=bcr_error_value
                                     )
 
                 label = "BCR" +  "_" + lx.upper() +"_" + first_agg.upper() + "_" + second_agg.upper()
