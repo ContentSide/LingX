@@ -61,7 +61,7 @@ print(f"Tokens Scores List == {tokens_scores_list}")
 print(f"Aggregated Score == {aggregated_score}")
 
 ```
-This should print the incomplete complexity theory (IDT) metric list with related tokens and final aggregated score using aggregated function `sum`:
+This should print the incomplete complexity theory (IDT) metric list with related tokens and aggregated score using aggregated function `sum`:
 
 ```console
 Tokens Scores List == [['The', 1], ['reporter', 2], ['who', 3], ['the', 4], ['senator', 3], ['who', 4], ['John', 5], ['met', 2], ['attacked', 2], ['disliked', 2], ['the', 3], ['editor', 1], ['.', 0]]

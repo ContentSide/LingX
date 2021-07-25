@@ -1,47 +1,85 @@
-# Tutorial 1: Basics
+# Tutorial 2: Getting Incomplete Dependency Theory(=IDT) Metric
 
-### Requirements and Installation
-
-The project is based on Stanza 1.2.1 and Python 3.6+. If you do not have Python 3.6, install it first. Then, in your favorite virtual environment, simply do:
-
-```
-pip install lingx
-```
-If you are running project in Jupyter Notebook or Google Colab enviroments run the following command instead:  
-```
-!pip install lingx
-```
-
-### Downloading Stanza Language Models
-
-Here are the codes:
+### Getting Segment-Level IDT-based Complexity
 
 ```python
-from lingx.utils import download_lang_models
+from lingx.core.lang_model import get_nlp_object
+from lingx.utils.lx import get_sentence_lx
+
+nlp_en = get_nlp_object("en", use_critt_tokenization = False, package="partut")
+
+input = "The reporter who the senator who John met attacked disliked the editor."
+
+tokens_scores_list, aggregated_score = get_sentence_lx(
+                                                       input,
+                                                       nlp_en,
+                                                       result_format="segment",
+                                                       complexity_type="idt", 
+                                                       aggregation_type="sum")
+
+print(f"Tokens Scores List == {tokens_scores_list}")
+print(f"Aggregated Score == {aggregated_score}")
+
 ```
-This will run only download English and Chinese language models with under the hood codes:
+This should print the metric list with related tokens and aggregated score using aggregated function `sum`:
+
+```console
+Tokens Scores List == [['The', 1], ['reporter', 2], ['who', 3], ['the', 4], ['senator', 3], ['who', 4], ['John', 5], ['met', 2], ['attacked', 2], ['disliked', 2], ['the', 3], ['editor', 1], ['.', 0]]
+Aggregated Score == 32
+```
+
+### Getting Segment-Level IDT-based Complexity (with Tokenized Input)
 
 ```python
-import lingx.core.lang_model as lm
+from lingx.core.lang_model import get_nlp_object
+from lingx.utils.lx import get_sentence_lx
 
-print("Downloading Language Models:")
+nlp_en = get_nlp_object("en", use_critt_tokenization = True, package="partut")
 
-lm.download_stanza_model("en", package="partut")
-lm.download_stanza_model("zh-hans")
+input = [["The", "reporter", "who", "the", "senator", "who", "John", "met", "attacked"], ["disliked", "the", "editor", "."]]
+
+tokens_scores_list, aggregated_score = get_sentence_lx(
+                                                       input,
+                                                       nlp_en,
+                                                       result_format="segment",
+                                                       complexity_type="idt", 
+                                                       aggregation_type="sum")
+
+print(f"Tokens Scores List == {tokens_scores_list}")
+print(f"Aggregated Score == {aggregated_score}")
+```
+This should print the metric list with related tokens and aggregated score using aggregated function `sum`:
+
+```console
+Tokens Scores List == [['The', 1], ['reporter', 1], ['who', 2], ['the', 3], ['senator', 2], ['who', 3], ['John', 4], ['met', 1], ['attacked', 0], ['disliked', 2], ['the', 3], ['editor', 1], ['.', 0]]
+Aggregated Score == 23
 ```
 
-If other language models are needed one can add the above code with consulting [the stanza language model pages](https://stanfordnlp.github.io/stanza/available_models.html).
-
-### Getting NLP Object
-
-The following code can assign a NLP language model with the same language name and package that is already downloaded. Noticd that seting `use_critt_tokenization` to `True` will let the NLP object accept the already existing tokenized segment while setting it to `False` will let the the internal tokenizer do the tokenization on string level. 
+### Getting Only Token-Level IDT-based Complexity (without Aggregated Score)
 
 ```python
-nlp = get_nlp_object("en", use_critt_tokenization = True, package="partut")
+from lingx.core.lang_model import get_nlp_object
+from lingx.utils.lx import get_sentence_lx
 
+nlp_en = get_nlp_object("en", use_critt_tokenization = False, package="partut")
+
+input = "The reporter who the senator who John met attacked disliked the editor."
+
+tokens_scores_list, _ = get_sentence_lx(
+                                                       input,
+                                                       nlp_en,
+                                                       result_format="token",
+                                                       complexity_type="idt", 
+                                                       aggregation_type="sum")
+
+print(f"Tokens Scores List == {tokens_scores_list}")
 ```
+This should print the metric list with related tokens only:
 
+```console
+Tokens Scores List == [['The', 1], ['reporter', 2], ['who', 3], ['the', 4], ['senator', 3], ['who', 4], ['John', 5], ['met', 2], ['attacked', 2], ['disliked', 2], ['the', 3], ['editor', 1], ['.', 0]]
+```  
 
 ## Next
 
-Now, let us look at how to get [Incomplete Dependency Theory(=IDT) Metric](TUTORIAL_2_IDT.md).
+Now, let us look at how to get [Dependency Locality Theory(=DLT) Metric](TUTORIAL_3_DLT.md).
