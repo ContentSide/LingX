@@ -1,5 +1,4 @@
 # Tutorial 1: Basics
----
 
 ### Requirements and Installation
 
@@ -33,6 +32,7 @@ lm.download_stanza_model("zh-hans")
 
 If other language models are needed one can add the above code with consulting [the stanza language model pages](https://stanfordnlp.github.io/stanza/available_models.html).
 
+### Getting NLP Object
 
 The following code can assign a NLP language model with the same language name and package that is already downloaded. Noticd that seting `use_critt_tokenization` to `True` will let the NLP object accept the already existing tokenized segment while setting it to `False` will let the the internal tokenizer do the tokenization on string level. 
 
@@ -44,4 +44,4 @@ nlp = get_nlp_object("en", use_critt_tokenization = True, package="partut")
 
 ## Next
 
-Now, let us look at how to get [Incomplete Dependency Theory(=IDT) Metric](resources/docs/TUTORIAL_2_IDT.md).
+Now, let us look at how to get [Incomplete Dependency Theory(=IDT) Metric](TUTORIAL_2_IDT.md).
