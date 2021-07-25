@@ -41,7 +41,7 @@ nlp = get_nlp_object("en", use_critt_tokenization = True, package="partut")
 
 ```
 
-### Philosophy behind use_critt_tokenization?
+### Philosophy behind `use_critt_tokenization`
 
 The philosphy behind the `use_critt_tokenization` is swithching between two different kind of inputs smoothly:
 
