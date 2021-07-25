@@ -73,12 +73,12 @@ Aggregated Score == 32
 We provide a set of quick tutorials to get you started with the library:
 
 * [Tutorial 1: Basics](resources/docs/TUTORIAL_1_BASICS.md)
-* [Tutorial 2: Getting Incomplete Dependency Metric](resources/docs/TUTORIAL_2_IDT.md)
-* [Tutorial 3: Getting Dependency Locality Metric](resources/docs/TUTORIAL_3_DLT.md)
-* [Tutorial 4: Getting Combined Incomplete Dependency and Dependency Locality Metric](resources/docs/TUTORIAL_4_IDT_DLT.md)
+* [Tutorial 2: Getting Incomplete Dependency Theory(=IDT) Metric](resources/docs/TUTORIAL_2_IDT.md)
+* [Tutorial 3: Getting Dependency Locality Theory(=DLT) Metric](resources/docs/TUTORIAL_3_DLT.md)
+* [Tutorial 4: Getting Combined IDT and DLT Metric](resources/docs/TUTORIAL_4_IDT_DLT.md)
 * [Tutorial 5: Getting Left-Embededness Metric](resources/docs/TUTORIAL_5_LE.md)
 * [Tutorial 6: Getting Number of Modifiers Before Noun Metric](resources/docs/TUTORIAL_6_MBN.md)
-* [Tutorial 7: Getting Bilingual Complexity Ratio](resources/docs/TUTORIAL_7_BCR.md)
+* [Tutorial 7: Getting Bilingual Complexity Ratio Metric](resources/docs/TUTORIAL_7_BCR.md)
 * [Tutorial 8: Reading and Working with CRITT TPR-DB ](resources/docs/TUTORIAL_8_CRITT.md)
 
 The tutorials explain how the base metrics can be obtained. Let us know if anything is unclear.
