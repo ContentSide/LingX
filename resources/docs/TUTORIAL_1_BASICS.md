@@ -41,6 +41,28 @@ nlp = get_nlp_object("en", use_critt_tokenization = True, package="partut")
 
 ```
 
+### Why use_critt_tokenization?
+
+The philosphy behind the `use_critt_tokenization` is swithching between two different kind of inputs smoothly:
+
+In summary, if `use_critt_tokenization` is set to `True` one should input the segment in this format:
+
+```console
+[['token_1_of_sent_1', 'token_2_of_sent_1', ...],['token_1_of_sent_2', 'token_2_of_sent_2', ...]]
+```
+Here is an example 
+
+```console
+[['This', 'is', 'token.ization', 'done', 'my', 'way!'], ['Sentence', 'split,', 'too!']])  
+```
+
+While, if `use_critt_tokenization` is set to `False` one should input the segment in this format:
+
+```console
+"This is token.ization done my way!, Sentence split too!"
+```
+
+It is obvious since the input is string and it is not already toknzied the internal Stanza tokenizer will be called under the hood.
 
 ## Next
 
