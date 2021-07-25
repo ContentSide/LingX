@@ -1,4 +1,4 @@
-![alt text](resources/emblem/ContentSide.png)  
+![alt text](https://github.com/ContentSide/lingx/blob/master/resources/emblem/ContentSide.png)  
 [![Contributions welcome](https://img.shields.io/badge/contributions-welcome-brightgreen.svg)](CONTRIBUTING.md)
 [![License: MIT](https://img.shields.io/badge/License-MIT-brightgreen.svg)](https://opensource.org/licenses/MIT)
 # LingX
