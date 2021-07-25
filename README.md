@@ -48,7 +48,6 @@ from lingx.utils.lx import get_sentence_lx
 
 nlp_en = get_nlp_object("en", use_critt_tokenization = False, package="partut")
 
-
 input = "The reporter who the senator who John met attacked disliked the editor."
 
 tokens_scores_list, aggregated_score = get_sentence_lx(
