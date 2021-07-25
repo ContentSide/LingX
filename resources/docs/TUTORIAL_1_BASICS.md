@@ -41,11 +41,11 @@ nlp = get_nlp_object("en", use_critt_tokenization = True, package="partut")
 
 ```
 
-### Why use_critt_tokenization?
+### Philosophy behind use_critt_tokenization?
 
 The philosphy behind the `use_critt_tokenization` is swithching between two different kind of inputs smoothly:
 
-In summary, if `use_critt_tokenization` is set to `True` one should input the segment in this format:
+In summary, if `use_critt_tokenization` is set to `True` one should input the segment in this format (Python's list of list format):
 
 ```console
 [['token_1_of_sent_1', 'token_2_of_sent_1', ...],['token_1_of_sent_2', 'token_2_of_sent_2', ...]]
@@ -56,13 +56,13 @@ Here is an example
 [['This', 'is', 'token.ization', 'done', 'my', 'way!'], ['Sentence', 'split,', 'too!']])  
 ```
 
-While, if `use_critt_tokenization` is set to `False` one should input the segment in this format:
+While, if `use_critt_tokenization` is set to `False` one should input the segment in this format (Python's string format):
 
 ```console
 "This is token.ization done my way!, Sentence split too!"
 ```
 
-It is obvious since the input is string and it is not already toknzied. That is why the internal Stanza tokenizer will be called under the hood. Notice that if an inconsistency happens between the `input` and `use_critt_tokenization` and error message will be prompted.
+It is obvious since that the input is string and it is not already toknzied. That is why the internal Stanza tokenizer will be called under the hood. Notice that if an inconsistency happens between the `input` and `use_critt_tokenization` an error message will be prompted.
 
 ## Next
 
