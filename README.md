@@ -1,4 +1,4 @@
-![alt text](https://github.com/ContentSide/lingx/blob/master/resources/emblem/ContentSide.png)  
+![LingX](https://github.com/ContentSide/lingx/blob/master/resources/emblem/lingx.png)  
 [![PyPI version](https://badge.fury.io/py/lingx.svg)](https://badge.fury.io/py/lingx)
 [![Contributions welcome](https://img.shields.io/badge/contributions-welcome-brightgreen.svg)](CONTRIBUTING.md)
 [![License: MIT](https://img.shields.io/badge/License-MIT-brightgreen.svg)](https://opensource.org/licenses/MIT)
@@ -39,7 +39,7 @@ If you are running project in Jupyter Notebook or Google Colab enviroments run t
 
 ### Example Usage
 
-Let's run a simple token-based psycholingual incomplete dependency metric as a test. All you need to do is to make import related methods and codes as follows:
+Let's run a simple token-based psycholingual incomplete complexity theory (IDT) metric as a test. All you need to do is to make import related methods and codes as follows:
 
 ```python
 from lingx.utils import download_lang_models
