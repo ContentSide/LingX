@@ -39,36 +39,34 @@ If you are running project in Jupyter Notebook or Google Colab enviroments run t
 
 ### Example Usage
 
-Let's run a simple token-based psycholingual incomplete dependency metric as a test. All you need to do is to make import related methods as follows:
+Let's run a simple token-based psycholingual incomplete dependency metric as a test. All you need to do is to make import related methods and codes as follows:
 
 ```python
-import lingx.utils.download_lang_models
+from lingx.utils import download_lang_models
 from lingx.core.lang_model import get_nlp_object
 from lingx.utils.lx import get_sentence_lx
 
-nlp_en = get_nlp_object("en", use_critt_tokenization = True, package="partut")
-```
-And then, a segment written in list of list format; the inner list represent sentence and outer list represent segmenant as number of potentially different sentences.  
-```python
+nlp_en = get_nlp_object("en", use_critt_tokenization = False, package="partut")
 
-segment_tokens= [['This', 'is', 'token.ization', 'done', 'my', 'way!'], ['Sentence', 'split,', 'too!']]
+
+input = "The reporter who the senator who John met attacked disliked the editor."
 
 tokens_scores_list, aggregated_score = get_sentence_lx(
-                                                        segment_tokens,
-                                                        nlp_en,
-                                                        result_format="segment",
-                                                        complexity_type="idt", 
-                                                        aggregation_type="sum")
+                                                       input,
+                                                       nlp_en,
+                                                       result_format="segment",
+                                                       complexity_type="idt", 
+                                                       aggregation_type="sum")
 
-print(f"Tokens_Scores List == {tokens_scores_list}")
+print(f"Tokens Scores List == {tokens_scores_list}")
 print(f"Aggregated Score == {aggregated_score}")
-```
 
-This should print:
+```
+This should print the incomplete complexity theory (IDT) metric list with related tokens and final aggregated score using aggregated function `sum`:
 
 ```console
-Tokens_Scores List == [['This', 1], ['is', 2], ['token.ization', 2], ['done', 1], ['my', 2], ['way!', 0], ['Sentence', 1], ['split,', 1], ['too!', 0]]
-Aggregated Score == 10
+Tokens Scores List == [['The', 1], ['reporter', 2], ['who', 3], ['the', 4], ['senator', 3], ['who', 4], ['John', 5], ['met', 2], ['attacked', 2], ['disliked', 2], ['the', 3], ['editor', 1], ['.', 0]]
+Aggregated Score == 32
 ```
 
 ## Tutorials
