@@ -43,7 +43,7 @@ nlp = get_nlp_object("en", use_critt_tokenization = True, package="partut")
 
 ### Philosophy behind `use_critt_tokenization`
 
-The philosphy behind the `use_critt_tokenization` is swithching between two different kind of inputs smoothly:
+The philosphy behind the `use_critt_tokenization` is swithching smoothly between two different kinds of inputs:
 
 In summary, if `use_critt_tokenization` is set to `True` one should input the segment in this format (Python's list of list format):
 
@@ -53,7 +53,7 @@ In summary, if `use_critt_tokenization` is set to `True` one should input the se
 Here is an example 
 
 ```console
-[['This', 'is', 'token.ization', 'done', 'my', 'way!'], ['Sentence', 'split,', 'too!']])  
+[['This', 'is', 'token.ization', 'done', 'my', 'way!'], ['Sentence', 'split,', 'too!']] 
 ```
 
 While, if `use_critt_tokenization` is set to `False` one should input the segment in this format (Python's string format):
