@@ -1,18 +1,5 @@
-![alt text](https://github.com/ContentSide/lingx/blob/master/resources/emblem/ContentSide.png)  
-[![Contributions welcome](https://img.shields.io/badge/contributions-welcome-brightgreen.svg)](CONTRIBUTING.md)
-[![License: MIT](https://img.shields.io/badge/License-MIT-brightgreen.svg)](https://opensource.org/licenses/MIT)
+
 # LingX
-
-**A library for introducing state-of-the-art metrics on measuring linguistic complexity developed by ContentSide and CRITT at Kent State University.**
-
----
-
-**LingX is:**  
-
-- A library for calculating some of the psycholinguistics complexity metrics.  
-- A library for obtaining helpful metrics for translational process studies.  
-- A library for different factors related to the text analysis.  
-- A library with extended modules to easily integerate translational studies in CRITT TPR-DB.  
 
 ---
 
