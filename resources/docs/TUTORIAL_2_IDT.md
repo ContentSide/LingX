@@ -66,11 +66,11 @@ nlp_en = get_nlp_object("en", use_critt_tokenization = False, package="partut")
 input = "The reporter who the senator who John met attacked disliked the editor."
 
 tokens_scores_list, _ = get_sentence_lx(
-                                                       input,
-                                                       nlp_en,
-                                                       result_format="token",
-                                                       complexity_type="idt", 
-                                                       aggregation_type="sum")
+                                        input,
+                                        nlp_en,
+                                        result_format="token",
+                                        complexity_type="idt", 
+                                        aggregation_type="sum")
 
 print(f"Tokens Scores List == {tokens_scores_list}")
 ```
