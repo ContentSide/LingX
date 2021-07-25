@@ -19,7 +19,7 @@ Here are the codes:
 ```python
 from lingx.utils import download_lang_models
 ```
-This will run only download English and Chinese language models with under the hood codes:
+This will run only download English and Chinese language models with calling following codes:
 
 ```python
 import lingx.core.lang_model as lm
@@ -30,7 +30,7 @@ lm.download_stanza_model("en", package="partut")
 lm.download_stanza_model("zh-hans")
 ```
 
-If other language models are needed one can add the above code with consulting [the stanza language model pages](https://stanfordnlp.github.io/stanza/available_models.html).
+If other language models are needed one can add the desired language models by adding/removing the above code. The list of available [stanza language models](https://stanfordnlp.github.io/stanza/available_models.html) can be explored.
 
 ### Getting NLP Object
 
@@ -62,7 +62,7 @@ While, if `use_critt_tokenization` is set to `False` one should input the segmen
 "This is token.ization done my way!, Sentence split too!"
 ```
 
-It is obvious since the input is string and it is not already toknzied the internal Stanza tokenizer will be called under the hood.
+It is obvious since the input is string and it is not already toknzied. That is why the internal Stanza tokenizer will be called under the hood. Notice that if an inconsistency happens between the `input` and `use_critt_tokenization` and error message will be prompted.
 
 ## Next
 
