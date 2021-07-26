@@ -1,6 +1,6 @@
-# Tutorial 2: Getting Incomplete Dependency Theory(=IDT) Metric
+# Tutorial 3: Getting Dependency Locality Theory(=DLT) Metric
 
-### Getting Segment-Level IDT-based Complexity
+### Getting Segment-Level DLT-based Complexity
 
 ```python
 from lingx.core.lang_model import get_nlp_object
@@ -14,7 +14,7 @@ tokens_scores_list, aggregated_score = get_sentence_lx(
                                                        input,
                                                        nlp_en,
                                                        result_format="segment",
-                                                       complexity_type="idt", 
+                                                       complexity_type="dlt", 
                                                        aggregation_type="sum")
 
 print(f"Tokens Scores List == {tokens_scores_list}")
@@ -23,8 +23,8 @@ print(f"Aggregated Score == {aggregated_score}")
 This should print the metric list with related tokens and aggregated score using aggregated function `sum`:
 
 ```console
-Tokens Scores List == [['The', 1], ['reporter', 2], ['who', 3], ['the', 4], ['senator', 3], ['who', 4], ['John', 5], ['met', 2], ['attacked', 2], ['disliked', 2], ['the', 3], ['editor', 1], ['.', 0]]
-Aggregated Score == 32
+Tokens Scores List == [['The', 0], ['reporter', 0], ['who', 0], ['the', 0], ['senator', 0], ['who', 0], ['John', 0], ['met', 2], ['attacked', 0], ['disliked', 0], ['the', 0], ['editor', 0], ['.', 0]]
+Aggregated Score == 2
 ```
 
 ### Getting Segment-Level IDT-based Complexity (with Tokenized Input)
@@ -41,7 +41,7 @@ tokens_scores_list, aggregated_score = get_sentence_lx(
                                                        input,
                                                        nlp_en,
                                                        result_format="segment",
-                                                       complexity_type="idt", 
+                                                       complexity_type="dlt", 
                                                        aggregation_type="sum")
 
 print(f"Tokens Scores List == {tokens_scores_list}")
@@ -50,8 +50,8 @@ print(f"Aggregated Score == {aggregated_score}")
 This should print the metric list with related tokens and aggregated score using aggregated function `sum`:
 
 ```console
-Tokens Scores List == [['The', 1], ['reporter', 1], ['who', 2], ['the', 3], ['senator', 2], ['who', 3], ['John', 4], ['met', 1], ['attacked', 0], ['disliked', 2], ['the', 3], ['editor', 1], ['.', 0]]
-Aggregated Score == 23
+Tokens Scores List == [['The', 0], ['reporter', 0], ['who', 0], ['the', 0], ['senator', 0], ['who', 0], ['John', 0], ['met', 2], ['attacked', 0], ['disliked', 0], ['the', 0], ['editor', 0], ['.', 0]]
+Aggregated Score == 2
 ```
 
 ### Getting Only Token-Level IDT-based Complexity (without Aggregated Score)
@@ -68,7 +68,7 @@ tokens_scores_list, _ = get_sentence_lx(
                                         input,
                                         nlp_en,
                                         result_format="token",
-                                        complexity_type="idt", 
+                                        complexity_type="dlt", 
                                         aggregation_type="sum")
 
 print(f"Tokens Scores List == {tokens_scores_list}")
@@ -76,9 +76,9 @@ print(f"Tokens Scores List == {tokens_scores_list}")
 This should print the metric list with related tokens only:
 
 ```console
-Tokens Scores List == [['The', 1], ['reporter', 2], ['who', 3], ['the', 4], ['senator', 3], ['who', 4], ['John', 5], ['met', 2], ['attacked', 2], ['disliked', 2], ['the', 3], ['editor', 1], ['.', 0]]
+Tokens Scores List == [['The', 0], ['reporter', 0], ['who', 0], ['the', 0], ['senator', 0], ['who', 0], ['John', 0], ['met', 2], ['attacked', 0], ['disliked', 0], ['the', 0], ['editor', 0], ['.', 0]]
 ```  
 
 ## Next
 
-Now, let us look at how to get [Dependency Locality Theory(=DLT) Metric](TUTORIAL_3_DLT.md).
+Now, let us look at how to get [Combined IDT and DLT Metric](TUTORIAL_4_IDT_DLT.md)
