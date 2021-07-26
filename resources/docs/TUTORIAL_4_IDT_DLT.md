@@ -1,6 +1,6 @@
-# Tutorial 3: Getting Combined IDT and DLT Metric
+# Tutorial 3: Getting Combined IDT and DLT Metric  
 
-### Getting Segment-Level DLT-based Complexity
+### Getting Segment-Level Combined IDT-DLT-based Complexity
 
 ```python
 from lingx.core.lang_model import get_nlp_object
@@ -14,8 +14,8 @@ tokens_scores_list, aggregated_score = get_sentence_lx(
                                                        input,
                                                        nlp_en,
                                                        result_format="segment",
-                                                       complexity_type="dlt", 
-                                                       aggregation_type="sum")
+                                                       complexity_type="idt_dlt", 
+                                                       aggregation_type="sum")  # choose `sum`, `max` or `mean`
 
 print(f"Tokens Scores List == {tokens_scores_list}")
 print(f"Aggregated Score == {aggregated_score}")
@@ -23,11 +23,11 @@ print(f"Aggregated Score == {aggregated_score}")
 This should print the metric list with related tokens and aggregated score using aggregated function `sum`:
 
 ```console
-Tokens Scores List == [['The', 0], ['reporter', 0], ['who', 0], ['the', 0], ['senator', 0], ['who', 0], ['John', 0], ['met', 2], ['attacked', 0], ['disliked', 0], ['the', 0], ['editor', 0], ['.', 0]]
-Aggregated Score == 2
+Tokens Scores List == [['The', 1], ['reporter', 2], ['who', 3], ['the', 4], ['senator', 3], ['who', 4], ['John', 5], ['met', 4], ['attacked', 2], ['disliked', 2], ['the', 3], ['editor', 1], ['.', 0]]
+Aggregated Score == 34
 ```
 
-### Getting Segment-Level IDT-based Complexity (with Tokenized Input)
+### Getting Segment-Level Combined IDT-DLT-based Complexity (with Tokenized Input)
 
 ```python
 from lingx.core.lang_model import get_nlp_object
@@ -41,8 +41,8 @@ tokens_scores_list, aggregated_score = get_sentence_lx(
                                                        input,
                                                        nlp_en,
                                                        result_format="segment",
-                                                       complexity_type="dlt", 
-                                                       aggregation_type="sum")
+                                                       complexity_type="idt_dlt", 
+                                                       aggregation_type="sum")  # choose `sum`, `max` or `mean`
 
 print(f"Tokens Scores List == {tokens_scores_list}")
 print(f"Aggregated Score == {aggregated_score}")
@@ -50,11 +50,11 @@ print(f"Aggregated Score == {aggregated_score}")
 This should print the metric list with related tokens and aggregated score using aggregated function `sum`:
 
 ```console
-Tokens Scores List == [['The', 0], ['reporter', 0], ['who', 0], ['the', 0], ['senator', 0], ['who', 0], ['John', 0], ['met', 2], ['attacked', 0], ['disliked', 0], ['the', 0], ['editor', 0], ['.', 0]]
-Aggregated Score == 2
+Tokens Scores List == [['The', 1], ['reporter', 1], ['who', 2], ['the', 3], ['senator', 2], ['who', 3], ['John', 4], ['met', 3], ['attacked', 0], ['disliked', 2], ['the', 3], ['editor', 1], ['.', 0]]
+Aggregated Score == 25
 ```
 
-### Getting Only Token-Level IDT-based Complexity (without Aggregated Score)
+### Getting Only Token-Level Combined IDT-DLT-based Complexity (without Aggregated Score)
 
 ```python
 from lingx.core.lang_model import get_nlp_object
@@ -68,15 +68,15 @@ tokens_scores_list, _ = get_sentence_lx(
                                         input,
                                         nlp_en,
                                         result_format="token",
-                                        complexity_type="dlt", 
-                                        aggregation_type="sum")
+                                        complexity_type="idt_dlt", 
+                                        aggregation_type="sum")  # choose `sum`, `max` or `mean`
 
 print(f"Tokens Scores List == {tokens_scores_list}")
 ```
 This should print the metric list with related tokens only:
 
 ```console
-Tokens Scores List == [['The', 0], ['reporter', 0], ['who', 0], ['the', 0], ['senator', 0], ['who', 0], ['John', 0], ['met', 2], ['attacked', 0], ['disliked', 0], ['the', 0], ['editor', 0], ['.', 0]]
+Tokens Scores List == [['The', 1], ['reporter', 2], ['who', 3], ['the', 4], ['senator', 3], ['who', 4], ['John', 5], ['met', 4], ['attacked', 2], ['disliked', 2], ['the', 3], ['editor', 1], ['.', 0]]
 ```  
 
 ## Next

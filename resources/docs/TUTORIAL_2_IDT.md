@@ -15,7 +15,7 @@ tokens_scores_list, aggregated_score = get_sentence_lx(
                                                        nlp_en,
                                                        result_format="segment",
                                                        complexity_type="idt", 
-                                                       aggregation_type="sum")
+                                                       aggregation_type="sum")  # choose `sum`, `max` or `mean`
 
 print(f"Tokens Scores List == {tokens_scores_list}")
 print(f"Aggregated Score == {aggregated_score}")
@@ -42,7 +42,7 @@ tokens_scores_list, aggregated_score = get_sentence_lx(
                                                        nlp_en,
                                                        result_format="segment",
                                                        complexity_type="idt", 
-                                                       aggregation_type="sum")
+                                                       aggregation_type="sum")  # choose `sum`, `max` or `mean`
 
 print(f"Tokens Scores List == {tokens_scores_list}")
 print(f"Aggregated Score == {aggregated_score}")
@@ -69,7 +69,7 @@ tokens_scores_list, _ = get_sentence_lx(
                                         nlp_en,
                                         result_format="token",
                                         complexity_type="idt", 
-                                        aggregation_type="sum")
+                                        aggregation_type="sum")  # choose `sum`, `max` or `mean`
 
 print(f"Tokens Scores List == {tokens_scores_list}")
 ```
