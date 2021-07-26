@@ -47,7 +47,8 @@ score = get_bcr_score(
                        first_aggregation_function= "sum",         # max, mean, sum
                        second_aggregation_function = "sum",       # max, mean, sum
                        robust=True,  # if set to `False` the error will be reported in case of alignment mismatch 
-                       bcr_error_value=np.nan)  # if `robust` set to `True` the error will NOT be reported and the `bcr_error_value` will be reported instead
+                       bcr_error_value=np.nan)  # if `robust` set to `True` the error will NOT be 
+                                                # reported and the `bcr_error_value` will be reported instead
 
 
 print(f"Aggregated Score == {score}")
