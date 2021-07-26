@@ -1,5 +1,15 @@
 # Tutorial 6: Getting Number of Modifiers Before Noun Metric
 
+### Downloading Stanza Language Model
+
+```python
+import lingx.core.lang_model as lm
+
+print("Downloading English Language Model:")
+
+lm.download_stanza_model("en", package="partut")
+```
+
 ### Getting Number of Modifiers Before Noun Metric
 
 ```python

@@ -1,5 +1,15 @@
 # Tutorial 5: Getting Left-Embededness Metric 
 
+### Downloading Stanza Language Model
+
+```python
+import lingx.core.lang_model as lm
+
+print("Downloading English Language Model:")
+
+lm.download_stanza_model("en", package="partut")
+```
+
 ### Getting Left-Embededness Metric 
 
 ```python

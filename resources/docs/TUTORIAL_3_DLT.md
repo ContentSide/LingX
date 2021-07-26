@@ -1,5 +1,15 @@
 # Tutorial 3: Getting Dependency Locality Theory(=DLT) Metric
 
+### Downloading Stanza Language Model
+
+```python
+import lingx.core.lang_model as lm
+
+print("Downloading English Language Model:")
+
+lm.download_stanza_model("en", package="partut")
+```
+
 ### Getting Segment-Level DLT-based Complexity
 
 ```python

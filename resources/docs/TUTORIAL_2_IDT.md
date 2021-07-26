@@ -1,5 +1,15 @@
 # Tutorial 2: Getting Incomplete Dependency Theory(=IDT) Metric
 
+### Downloading Stanza Language Models
+
+```python
+import lingx.core.lang_model as lm
+
+print("Downloading English Language Model:")
+
+lm.download_stanza_model("en", package="partut")
+```
+
 ### Getting Segment-Level IDT-based Complexity
 
 ```python
