@@ -1,7 +1,9 @@
 name: Test Python 🐍 distributions
 
-on:
+on: 
   push:
+    tags:
+      - v*
 
 jobs:
   build:

@@ -5,7 +5,7 @@ with open("requirements.txt") as f:
 
 setup(
     name="lingx",
-    version="0.1.4",
+    version="0.1.5",
     description="A library for introducing state-of-the-art metrics on measuring linguistic complexity",
     long_description=open("README.md", encoding="utf-8").read(),
     long_description_content_type="text/markdown",
