@@ -1,4 +1,4 @@
-# Tutorial 7: Getting Bilingual Complexity Ratio Metric
+# Tutorial 8: Reading and Working with CRITT TPR-DB
 
 ### Getting Bilingual Complexity Ratio Metric
 
@@ -46,6 +46,3 @@ Aggregated Score == 8.67
 ```
 Note that we can also provide string format input for arguments `tokens_source` and `tokens_target`, instead of list of list format. This is described in previous tutorials.
 
-## Next
-
-Now, let us look at how to [Read and Work with CRITT TPR-DB ](TUTORIAL_8_CRITT.md)
