@@ -81,4 +81,4 @@ Tokens Scores List == [['The', 1], ['reporter', 2], ['who', 3], ['the', 4], ['se
 
 ## Next
 
-Now, let us look at how to get [Left-Embededness Metric](resources/docs/TUTORIAL_5_LE.md)
+Now, let us look at how to get [Left-Embededness Metric](TUTORIAL_5_LE.md)
