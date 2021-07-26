@@ -84,8 +84,9 @@ We provide a set of quick tutorials to get you started with the library:
 The tutorials explain how the base metrics can be obtained. Let us know if anything is unclear.
 
 ## CRITT Translation Process Database (TPR-DB)
-The CRITT Translation Process Database (TPR-DB) is released under [Creative Commons License (CC BY-NC-SA)](https://sites.google.com/site/centretranslationinnovation/tpr-db/license?authuser=0). Note that the available [EN-ZH_IMBst18](https://github.com/ContentSide/lingx/tree/master/resources/TPRDB/EN-ZH_IMBst18) database in this github belongs to CRITT TPR-DB.
+The CRITT Translation Process Database (TPR-DB) is released under [Creative Commons License (CC BY-NC-SA)](https://sites.google.com/site/centretranslationinnovation/tpr-db/license?authuser=0). Note that the available [EN-ZH_IMBst18](https://github.com/ContentSide/lingx/tree/master/resources/TPRDB/EN-ZH_IMBst18) database in this github belongs to CRITT TPR-DB.  
 
+---
 
 ## Citing LingX
 
