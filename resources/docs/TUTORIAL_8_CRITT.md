@@ -1,17 +1,12 @@
 # Tutorial 8: Reading and Working with CRITT TPR-DB
 
-This is the exact ALAPP 2021 paper's experiment using EN-ZH_IMBst18 CRITT TPR-DB available in the github. The jupyter notebook can be found [here](ALAPP2021/ALAPP_2021_Paper.ipynb).
+This is the exact ALAPP 2021 paper's experiment using EN-ZH_IMBst18 CRITT TPR-DB available in the github. The jupyter notebook can be found [here](../ALAPP2021/ALAPP_2021_Paper.ipynb).
 
 
 ### Install LingX
 
 ```python
-import lingx.core.lang_model as lm
-
-print("Downloading Language Models:")
-
-lm.download_stanza_model("en", package="partut")
-lm.download_stanza_model("zh-hans")
+!pip install lingx
 ```
 
 
