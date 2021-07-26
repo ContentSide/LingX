@@ -1,84 +1,50 @@
-# Tutorial 4: Getting Combined IDT and DLT Metric  
+# Tutorial 4: Getting Left-Embededness Metric 
 
-### Getting Segment-Level Combined IDT-DLT-based Complexity
+### Getting Left-Embededness Metric 
 
 ```python
 from lingx.core.lang_model import get_nlp_object
-from lingx.utils.lx import get_sentence_lx
+from lingx.metrics.monolingual.le import get_le_score
 
 nlp_en = get_nlp_object("en", use_critt_tokenization = False, package="partut")
 
 input = "The reporter who the senator who John met attacked disliked the editor."
 
-tokens_scores_list, aggregated_score = get_sentence_lx(
-                                                       input,
-                                                       nlp_en,
-                                                       result_format="segment",
-                                                       complexity_type="idt_dlt", 
-                                                       aggregation_type="sum")  # choose `sum`, `max` or `mean`
+score = get_le_score(
+                     input, 
+                     nlp=nlp_en, 
+                     aggregator="sum")  # choose `sum`, `max` or `mean`
 
-print(f"Tokens Scores List == {tokens_scores_list}")
-print(f"Aggregated Score == {aggregated_score}")
+print(f"Aggregated Score == {score}")
 ```
 This should print the metric list with related tokens and aggregated score using aggregated function `sum`:
 
 ```console
-Tokens Scores List == [['The', 1], ['reporter', 2], ['who', 3], ['the', 4], ['senator', 3], ['who', 4], ['John', 5], ['met', 4], ['attacked', 2], ['disliked', 2], ['the', 3], ['editor', 1], ['.', 0]]
-Aggregated Score == 34
+Aggregated Score == 7
 ```
-
-### Getting Segment-Level Combined IDT-DLT-based Complexity (with Tokenized Input)
+### Getting Left-Embededness Metric (with Tokenized Input)
 
 ```python
 from lingx.core.lang_model import get_nlp_object
-from lingx.utils.lx import get_sentence_lx
+from lingx.metrics.monolingual.le import get_le_score
 
 nlp_en = get_nlp_object("en", use_critt_tokenization = True, package="partut")
 
 input = [["The", "reporter", "who", "the", "senator", "who", "John", "met", "attacked"], ["disliked", "the", "editor", "."]]
 
-tokens_scores_list, aggregated_score = get_sentence_lx(
-                                                       input,
-                                                       nlp_en,
-                                                       result_format="segment",
-                                                       complexity_type="idt_dlt", 
-                                                       aggregation_type="sum")  # choose `sum`, `max` or `mean`
+score = get_le_score(
+                     input, 
+                     nlp=nlp_en, 
+                     aggregator="sum")  # choose `sum`, `max` or `mean`
 
-print(f"Tokens Scores List == {tokens_scores_list}")
-print(f"Aggregated Score == {aggregated_score}")
+print(f"Aggregated Score == {score}")
 ```
 This should print the metric list with related tokens and aggregated score using aggregated function `sum`:
 
 ```console
-Tokens Scores List == [['The', 1], ['reporter', 1], ['who', 2], ['the', 3], ['senator', 2], ['who', 3], ['John', 4], ['met', 3], ['attacked', 0], ['disliked', 2], ['the', 3], ['editor', 1], ['.', 0]]
-Aggregated Score == 25
+Aggregated Score == 7
 ```
-
-### Getting Only Token-Level Combined IDT-DLT-based Complexity (without Aggregated Score)
-
-```python
-from lingx.core.lang_model import get_nlp_object
-from lingx.utils.lx import get_sentence_lx
-
-nlp_en = get_nlp_object("en", use_critt_tokenization = False, package="partut")
-
-input = "The reporter who the senator who John met attacked disliked the editor."
-
-tokens_scores_list, _ = get_sentence_lx(
-                                        input,
-                                        nlp_en,
-                                        result_format="token",
-                                        complexity_type="idt_dlt", 
-                                        aggregation_type="sum")  # choose `sum`, `max` or `mean`
-
-print(f"Tokens Scores List == {tokens_scores_list}")
-```
-This should print the metric list with related tokens only:
-
-```console
-Tokens Scores List == [['The', 1], ['reporter', 2], ['who', 3], ['the', 4], ['senator', 3], ['who', 4], ['John', 5], ['met', 4], ['attacked', 2], ['disliked', 2], ['the', 3], ['editor', 1], ['.', 0]]
-```  
 
 ## Next
 
-Now, let us look at how to get [Left-Embededness Metric](TUTORIAL_5_LE.md)
+Now, let us look at how to get [Number of Modifiers Before Noun Metric](TUTORIAL_6_MBN.md)
