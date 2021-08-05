@@ -37,7 +37,7 @@ def get_dlt_complexity(input, nlp):
     dlt_complexity_partial=[]
     for link in backward_longest_links:
         accepted_pos=[]
-        for indx in range(link[0],link[1]-1,-1):
+        for indx in range(link[0]-1,link[1]-1,-1):
             pos=links[indx][1][2]
             if pos in acceptable_discourse_referents: 
                 accepted_pos.append(pos)
