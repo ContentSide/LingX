@@ -85,9 +85,9 @@ def get_mbn_score(input, nlp, aggregator="sum", ploraity = False):
     saved_score_lists=[]
     for list_pairs in sent_list_pairs:
         dep_tree = convert_dep2tree(list_pairs[0])
-        le_score = get_mbn_from_noun_indicator(list_pairs[1], dep_tree, aggregator, ploraity)
-        score_lists.append(le_score[0])
-        saved_score_lists.append(le_score)
+        mbn_score = get_mbn_from_noun_indicator(list_pairs[1], dep_tree, aggregator, ploraity)
+        score_lists.append(mbn_score[0])
+        saved_score_lists.append(mbn_score)
 
 
     if aggregator == "sum":
