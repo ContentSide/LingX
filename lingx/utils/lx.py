@@ -4,7 +4,7 @@ from lingx.metrics.psycholingual.idt import get_idt_score
 from lingx.metrics.psycholingual.dlt import get_dlt_score
 from lingx.metrics.psycholingual.idt_dlt import get_idt_dlt_score
 from lingx.metrics.monolingual.le import get_le_score
-from lingx.metrics.monolingual.mbn import get_nnd_score
+from lingx.metrics.monolingual.nnd import get_nnd_score
 
 from lingx.core.lang_features import aggregate_tokens
 
