@@ -117,9 +117,9 @@ def expand_table_monolingual(df_analysis, nlp, token_column="SToken"):
                         ["le","mean","LE_MEAN_ST"],
                         ["le","max","LE_MAX_ST"],
                         ["le","sum","LE_SUM_ST"],
-                        ["mbn","mean","MBN_MEAN_ST"],
-                        ["mbn","max","MBN_MAX_ST"],
-                        ["mbn","sum","MBN_SUM_ST"]
+                        ["nnd","mean","NND_MEAN_ST"],
+                        ["nnd","max","NND_MAX_ST"],
+                        ["nnd","sum","NND_SUM_ST"]
     ]
 
 
@@ -127,9 +127,9 @@ def expand_table_monolingual(df_analysis, nlp, token_column="SToken"):
                         ["le","mean","LE_MEAN_TT"],
                         ["le","max","LE_MAX_TT"],
                         ["le","sum","LE_SUM_TT"],
-                        ["mbn","mean","MBN_MEAN_TT"],
-                        ["mbn","max","MBN_MAX_TT"],
-                        ["mbn","sum","MBN_SUM_TT"]
+                        ["nnd","mean","NND_MEAN_TT"],
+                        ["nnd","max","NND_MAX_TT"],
+                        ["nnd","sum","NND_SUM_TT"]
     ]
 
 

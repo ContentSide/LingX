@@ -4,7 +4,7 @@ from lingx.metrics.psycholingual.idt import get_idt_score
 from lingx.metrics.psycholingual.dlt import get_dlt_score
 from lingx.metrics.psycholingual.idt_dlt import get_idt_dlt_score
 from lingx.metrics.monolingual.le import get_le_score
-from lingx.metrics.monolingual.mbn import get_mbn_score
+from lingx.metrics.monolingual.mbn import get_nnd_score
 
 from lingx.core.lang_features import aggregate_tokens
 
@@ -56,14 +56,14 @@ def get_sentence_lx(
 
 def get_sentence_mono_lingual(
                                 input, nlp,
-                                mono_lingual_type="le",  # 'le' or 'mbn'
+                                mono_lingual_type="le",  # 'le' or 'nnd'
                                 aggregation_type="sum"):
 
     if mono_lingual_type == "le":
         score = get_le_score(input, nlp, aggregation_type)
-    elif mono_lingual_type == "mbn":
-        score = get_mbn_score(input, nlp, aggregation_type)
+    elif mono_lingual_type == "nnd":
+        score = get_nnd_score(input, nlp, aggregation_type)
     else:
-        raise Exception("Set `mono_lingual_type` to one of the following values: `le` or `mbn`.")
+        raise Exception("Set `mono_lingual_type` to one of the following values: `le` or `nnd`.")
     
     return score

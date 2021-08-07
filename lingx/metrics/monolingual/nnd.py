@@ -1,4 +1,4 @@
-# A module for calculating number of Modifiers Before Nouns in a sentence
+# A module for calculating Nested Nouns Distance in a sentence
 
 import numpy as np
 from treelib import Tree, Node
@@ -9,7 +9,7 @@ from lingx.core.lang_model import get_doc
 
 
 
-def get_mbn_from_noun_indicator(noun_indicator, tree, aggregator="mean", ploraity = False):
+def get_nnd_from_noun_indicator(noun_indicator, tree, aggregator="mean", ploraity = False):
     scores = []
 
     if len(noun_indicator) > 1:
@@ -33,18 +33,18 @@ def get_mbn_from_noun_indicator(noun_indicator, tree, aggregator="mean", plorait
 
     if len(noun_indicator) > 0:
         if aggregator == "sum":
-            nested_np_modifiers_score=np.sum(scores)
+            nested_nouns_distance_score=np.sum(scores)
         elif aggregator == "mean":
-            nested_np_modifiers_score=np.mean(scores)
+            nested_nouns_distance_score=np.mean(scores)
         elif aggregator == "max":
-            nested_np_modifiers_score=np.max(scores)
+            nested_nouns_distance_score=np.max(scores)
     else:
-        nested_np_modifiers_score = 0 # The default value in case we have no NOUN
+        nested_nouns_distance_score = 0 # The default value in case we have no NOUN
 
-    return nested_np_modifiers_score, scores
+    return nested_nouns_distance_score, scores
 
 
-def get_mbn_score(input, nlp, aggregator="sum", ploraity = False):
+def get_nnd_score(input, nlp, aggregator="sum", ploraity = False):
     """
     Argument `input`: 
     If input type is tokens the input should be in this format 
@@ -85,20 +85,20 @@ def get_mbn_score(input, nlp, aggregator="sum", ploraity = False):
     saved_score_lists=[]
     for list_pairs in sent_list_pairs:
         dep_tree = convert_dep2tree(list_pairs[0])
-        mbn_score = get_mbn_from_noun_indicator(list_pairs[1], dep_tree, aggregator, ploraity)
-        score_lists.append(mbn_score[0])
-        saved_score_lists.append(mbn_score)
+        nnd_score = get_nnd_from_noun_indicator(list_pairs[1], dep_tree, aggregator, ploraity)
+        score_lists.append(nnd_score[0])
+        saved_score_lists.append(nnd_score)
 
 
     if aggregator == "sum":
-        nested_np_modifiers_score=np.sum(score_lists)
+        nested_nouns_distance_score=np.sum(score_lists)
     elif aggregator == "mean":
-        nested_np_modifiers_score=np.mean(score_lists)
+        nested_nouns_distance_score=np.mean(score_lists)
     elif aggregator == "max":
-        nested_np_modifiers_score=np.max(score_lists)
+        nested_nouns_distance_score=np.max(score_lists)
 
-    # possible return values for further tests are nested_np_modifiers_score, saved_score_lists, sent_list_pairs
-    return nested_np_modifiers_score
+    # possible return values for further tests are nested_nouns_distance_score, saved_score_lists, sent_list_pairs
+    return nested_nouns_distance_score
 
 
     
