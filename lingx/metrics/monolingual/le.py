@@ -8,42 +8,29 @@ from lingx.core.lang_model import get_doc
 
 def get_le_from_verb(verb_indicator, aggregator="sum"):
     
-    false_place_holders = "".join(str(e) for e in verb_indicator).replace("False","X").replace("True","Y")
-    for indx, value in enumerate(false_place_holders[::-1]):
-        if value == "Y":
-            break
-    non_verb_counts = false_place_holders[:-indx-1]
+    drop_last_score = True
+    false_place_holders = "".join(str(e) for e in verb_indicator).replace("False","X").split("True")
+
+    if false_place_holders[-1] == '':
+        false_place_holders.pop()
+        drop_last_score = False
+    if false_place_holders[0] == '':
+        false_place_holders.pop(0)
+
+    non_verb_counts = [len(item) for item in false_place_holders]
+
+    if drop_last_score :
+        non_verb_counts = non_verb_counts[:-1]
 
     if len(non_verb_counts) > 0:
-        left_embeddedness_score=len(non_verb_counts)
+        if aggregator == "sum":
+            left_embeddedness_score=np.sum(non_verb_counts)
+        elif aggregator == "mean":
+            left_embeddedness_score=np.mean(non_verb_counts)
+        elif aggregator == "max":
+            left_embeddedness_score=np.max(non_verb_counts)
     else:
         left_embeddedness_score = 0 # The default value in case we have no VERB
-
-
-
-    # drop_last_score = True
-    # false_place_holders = "".join(str(e) for e in verb_indicator).replace("False","X").split("True")
-
-    # if false_place_holders[-1] == '':
-    #     false_place_holders.pop()
-    #     drop_last_score = False
-    # if false_place_holders[0] == '':
-    #     false_place_holders.pop(0)
-
-    # non_verb_counts = [len(item) for item in false_place_holders]
-
-    # if drop_last_score :
-    #     non_verb_counts = non_verb_counts[:-1]
-
-    # if len(non_verb_counts) > 0:
-    #     if aggregator == "sum":
-    #         left_embeddedness_score=np.sum(non_verb_counts)
-    #     elif aggregator == "mean":
-    #         left_embeddedness_score=np.mean(non_verb_counts)
-    #     elif aggregator == "max":
-    #         left_embeddedness_score=np.max(non_verb_counts)
-    # else:
-    #     left_embeddedness_score = 0 # The default value in case we have no VERB
 
     return left_embeddedness_score, non_verb_counts
 
