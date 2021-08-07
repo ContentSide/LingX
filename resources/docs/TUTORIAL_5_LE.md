@@ -57,4 +57,4 @@ Aggregated Score == 7
 
 ## Next
 
-Now, let us look at how to get [Number of Modifiers Before Noun Metric](TUTORIAL_6_MBN.md)
+Now, let us look at how to get [Nested Nouns Distance Metric](TUTORIAL_6_NND.md)

@@ -1,4 +1,4 @@
-# Tutorial 6: Getting Number of Modifiers Before Noun Metric
+# Tutorial 6: Getting Nested Nouns Distance Metric
 
 ### Downloading Stanza Language Model
 
@@ -14,13 +14,13 @@ lm.download_stanza_model("en", package="partut")
 
 ```python
 from lingx.core.lang_model import get_nlp_object
-from lingx.metrics.monolingual.mbn import get_mbn_score
+from lingx.metrics.monolingual.nnd import get_nnd_score
 
 nlp_en = get_nlp_object("en", use_critt_tokenization = False, package="partut")
 
 input = "The reporter who the senator who John met attacked disliked the editor."
 
-score = get_mbn_score(
+score = get_nnd_score(
                       input, 
                       nlp=nlp_en, 
                       aggregator="sum",  # choose `sum`, `max` or `mean`
@@ -37,13 +37,13 @@ Aggregated Score == 5
 
 ```python
 from lingx.core.lang_model import get_nlp_object
-from lingx.metrics.monolingual.mbn import get_mbn_score
+from lingx.metrics.monolingual.nnd import get_nnd_score
 
 nlp_en = get_nlp_object("en", use_critt_tokenization = True, package="partut")
 
 input = [["The", "reporter", "who", "the", "senator", "who", "John", "met", "attacked"], ["disliked", "the", "editor", "."]]
 
-score = get_mbn_score(
+score = get_nnd_score(
                       input, 
                       nlp=nlp_en, 
                       aggregator="sum",  # choose `sum`, `max` or `mean`
