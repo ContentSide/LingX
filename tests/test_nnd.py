@@ -1,5 +1,5 @@
 from lingx.core.lang_model import get_nlp_object
-from lingx.metrics.monolingual.mbn import get_mbn_score
+from lingx.metrics.monolingual.nnd import get_nnd_score
 
 def test_mbn():
 
@@ -7,7 +7,7 @@ def test_mbn():
 
     input = [["The", "reporter", "who", "the", "senator", "who", "John", "met", "attacked"], ["disliked", "the", "editor", "."]]
 
-    score = get_mbn_score(
+    score = get_nnd_score(
                         input, 
                         nlp=nlp_en, 
                         aggregator="sum",  # choose `sum`, `max` or `mean`
