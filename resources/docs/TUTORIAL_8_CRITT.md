@@ -93,17 +93,17 @@ analysis_st_tt.columns
 
 ```python
 table = analysis_st_tt[[
-                        'IDT_MAX_TT', 'IDT_MEAN_TT', 'IDT_SUM_TT', 'DLT_MAX_TT', 'DLT_MEAN_TT', 
-                        'DLT_SUM_TT', 'IDT_DLT_MAX_TT', 'IDT_DLT_MEAN_TT', 'IDT_DLT_SUM_TT', 'LE_MEAN_TT',
-                        'LE_MAX_TT', 'LE_SUM_TT', 'MBN_MEAN_TT', 'MBN_MAX_TT', 'MBN_SUM_TT',
+                       'IDT_MAX_TT', 'IDT_MEAN_TT','IDT_SUM_TT', 'DLT_MAX_TT', 'DLT_MEAN_TT', 'DLT_SUM_TT',
+                        'IDT_DLT_MAX_TT', 'IDT_DLT_MEAN_TT', 'IDT_DLT_SUM_TT', 'LE_MEAN_TT',
+                        'LE_MAX_TT', 'LE_SUM_TT', 'NND_MEAN_TT', 'NND_MAX_TT', 'NND_SUM_TT',
                         'SToken', 'IDT_MAX_ST', 'IDT_MEAN_ST', 'IDT_SUM_ST', 'DLT_MAX_ST',
                         'DLT_MEAN_ST', 'DLT_SUM_ST', 'IDT_DLT_MAX_ST', 'IDT_DLT_MEAN_ST',
-                        'IDT_DLT_SUM_ST', 'LE_MEAN_ST', 'LE_MAX_ST', 'LE_SUM_ST', 'MBN_MEAN_ST',
-                        'MBN_MAX_ST', 'MBN_SUM_ST', 'Alignment', 'BCR_SUM_SUM_SUM',
+                        'IDT_DLT_SUM_ST', 'LE_MEAN_ST', 'LE_MAX_ST', 'LE_SUM_ST', 'NND_MEAN_ST',
+                        'NND_MAX_ST', 'NND_SUM_ST', 'Alignment', 'BCR_SUM_SUM_SUM',
                         'BCR_SUM_SUM_MAX', 'BCR_SUM_SUM_MEAN', 'BCR_SUM_MAX_SUM',
                         'BCR_SUM_MAX_MAX', 'BCR_SUM_MAX_MEAN', 'BCR_SUM_MEAN_SUM',
-                        'BCR_SUM_MEAN_MAX', 'BCR_SUM_MEAN_MEAN', 
-                        'Any', 'Accuracy', 'Fluency', 'Style', 'Critical', 'Minor'
+                        'BCR_SUM_MEAN_MAX', 'BCR_SUM_MEAN_MEAN', 'SessionSeg', 'Any',
+                        'Accuracy', 'Fluency', 'Style', 'Critical', 'Minor'
                         ]]
 ```
 
@@ -114,3 +114,31 @@ report = table.corr(method="spearman")
 report[['Any','Accuracy','Fluency','Style','Critical','Minor']]
 ```
 
+### P-values Matrix
+
+```python
+from scipy.stats import kendalltau, pearsonr, spearmanr
+
+def kendall_pval(x,y):
+    return kendalltau(x,y)[1]
+
+def pearsonr_pval(x,y):
+    return pearsonr(x,y)[1]
+
+def spearmanr_pval(x,y):
+    return spearmanr(x,y)[1]
+```
+
+### P-values Matrix
+
+
+```python
+report = table.corr(method=spearmanr_pval)
+# report.to_csv("report.csv")
+
+report = report[['Any','Accuracy','Fluency','Style','Critical','Minor']]
+report = report<=0.05
+report = report.replace(True, "(*)")
+report = report.replace(False, "")
+report
+```
