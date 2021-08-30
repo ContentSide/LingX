@@ -129,9 +129,6 @@ def spearmanr_pval(x,y):
     return spearmanr(x,y)[1]
 ```
 
-### P-values Matrix
-
-
 ```python
 report = table.corr(method=spearmanr_pval)
 # report.to_csv("report.csv")
