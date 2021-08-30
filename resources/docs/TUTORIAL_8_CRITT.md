@@ -131,8 +131,6 @@ def spearmanr_pval(x,y):
 
 ```python
 report = table.corr(method=spearmanr_pval)
-# report.to_csv("report.csv")
-
 report = report[['Any','Accuracy','Fluency','Style','Critical','Minor']]
 report = report<=0.05
 report = report.replace(True, "(*)")
