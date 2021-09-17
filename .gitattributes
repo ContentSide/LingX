@@ -1,2 +1,2 @@
-*.py linguist-language=python
 resources/* linguist-documentation
+*.py linguist-language=python
