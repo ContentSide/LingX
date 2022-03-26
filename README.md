@@ -93,12 +93,25 @@ The CRITT Translation Process Database (TPR-DB) is released under [Creative Comm
 Please cite:
 
 ```
-@inproceedings{Zou2021
-  title={Syntactic Complexity and Translation Performance in English-to-Chinese Sight Translation},
-  author={Zou, Longhui and Mirzapour, Mehdi and Jacquenet, Hélène},
-  booktitle={Applied Linguistics and Professional Practice 2021},
-  year={2021},
-  publisher={Translational Data Analytics Institute, The Ohio State University}
+@InProceedings{10.1007/978-3-030-98404-5_49,
+author="Zou, Longhui
+and Carl, Michael
+and Mirzapour, Mehdi
+and Jacquenet, H{\'e}l{\`e}ne
+and Vieira, Lucas Nunes",
+editor="Kim, Jong-Hoon
+and Singh, Madhusudan
+and Khan, Javed
+and Tiwary, Uma Shanker
+and Sur, Marigankar
+and Singh, Dhananjay",
+title="AI-Based Syntactic Complexity Metrics and Sight Interpreting Performance",
+booktitle="Intelligent Human Computer Interaction",
+year="2022",
+publisher="Springer International Publishing",
+address="Cham",
+pages="534--547",
+isbn="978-3-030-98404-5"
 }
 ```
 
