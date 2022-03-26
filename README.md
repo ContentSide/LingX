@@ -90,7 +90,7 @@ The CRITT Translation Process Database (TPR-DB) is released under [Creative Comm
 
 ## Citing LingX
 
-Please cite:
+Please cite the paper https://doi.org/10.1007/978-3-030-98404-5_49 :
 
 ```
 @InProceedings{10.1007/978-3-030-98404-5_49,
